@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý Kho - Tào phớ Bình An</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- CSS thuần -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar col-3">
+      <div class="logo">Tào phớ Bình An</div>
+      <nav>
+        <a href="admin.html" class="menu-item"><i class="fas fa-home"></i> Tổng quan</a>
+        <a href="product.html" class="menu-item"><i class="fas fa-shopping-cart"></i> Sản phẩm</a>
+        <a href="order.html" class="menu-item"><i class="fas fa-file"></i> Đơn hàng</a>
+        <a href="inventory.html" class="menu-item active"><i class="fas fa-box"></i> Kho</a>
+        <a href="customer.html" class="menu-item"><i class="fas fa-user"></i> Khách hàng</a>
+      </nav>
+    </div>
+
+    <!-- Nội dung chính -->
+    <div class="main col-9">
+      <div class="header">
+        <div class="flex items-center">
+          <button class="hamburger">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="page-title">Kho</div>
+        </div>
+        <div class="header-right">
+          <input type="text" placeholder="Tìm kiếm..." class="search">
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </div>
+          <div class="avatar"></div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="card table-card">
+          <h3>Quản lý kho</h3>
+          <button class="btn-add">
+            <i class="fas fa-plus"></i> Thêm sản phẩm
+          </button>
+          <table>
+            <thead>
+              <tr>
+                <th>Nguyên liệu</th>
+                <th>Số lượng</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-table-body">
+              <!-- Hard-code dữ liệu kho -->
+              <tr>
+                <td>Đậu nành</td>
+                <td>50 kg</td>
+                <td>
+                  <button class="btn-detail" onclick="alert('Nhập thêm Đậu nành')">Nhập kho</button>
+                  <button class="btn-delete" onclick="alert('Xóa Đậu nành')"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Đường</td>
+                <td>30 kg</td>
+                <td>
+                  <button class="btn-detail" onclick="alert('Nhập thêm Đường')">Nhập kho</button>
+                  <button class="btn-delete" onclick="alert('Xóa Đường')"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Hạt sen</td>
+                <td>20 kg</td>
+                <td>
+                  <button class="btn-detail" onclick="alert('Nhập thêm Hạt sen')">Nhập kho</button>
+                  <button class="btn-delete" onclick="alert('Xóa Hạt sen')"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>Long nhãn</td>
+                <td>15 kg</td>
+                <td>
+                  <button class="btn-detail" onclick="alert('Nhập thêm Long nhãn')">Nhập kho</button>
+                  <button class="btn-delete" onclick="alert('Xóa Long nhãn')"><i class="fas fa-trash"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

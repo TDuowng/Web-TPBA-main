@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/png" href="Images/icon.png">
+    <link rel="stylesheet" type="text/css" href="css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <title>Trang chủ - Tào phớ Bình An</title>
+</head>
+<div id="popup-cart" class="popup-cart">
+    <div class="button-x">
+        <span onclick="closePopupCart()"><i class="fa-solid fa-xmark"></i></span>
+    </div>
+    <div class="popup-header">
+        <span><i class="fa-solid fa-square-check"></i>Sản phẩm này vừa được thêm vào giỏ hàng</span>
+    </div>
+    <div class="popup-body">
+        <div class="popup-product">
+            <img id="popup-img" src="" alt="Product">
+            <div class="popup-info">
+                <div id="popup-name" class="popup-name">Tên sản phẩm</div>
+                <div class="count"><span>Số lượng:</span> <span id="popup-quantity">1</span></div>
+                <div class="cost"><span>Giá:</span> <span id="popup-price">0₫</span></div>
+            </div>
+        </div>
+        <hr>
+        <div class="popup-cart-summary">
+            <i class="fa-solid fa-cart-shopping" ></i> &nbsp; Giỏ hàng của bạn (<span
+                id="popup-cart-count">0</span> sản phẩm)
+        </div>
+        <a href="cart.html"><button class="popup-checkout">Tiến hành thanh toán</button></a>
+    </div>
+</div>
+<div id="popup-overlay" class="popup-overlay" onclick="closePopupCart()"></div>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="top">
+                <div class="top-content ">
+                    <div class="top-left">
+                        <span id="hotline"> Hotline: <b> 0353 689 832 </b> </span>
+                        <span id="address">Địa chỉ: Số 34 Đường Phạm Sĩ Ái, Cầu Tình, Phố Nối, Mỹ Hào, Hưng Yên</span>
+                    </div>
+                    <div class="top-right ">
+                        <ul class="top-list">
+                            <li><a href="aboutme.html"><i class="fas fa-info-circle"></i><span>Giới thiệu</span></a></li>
+                            <li><a href="aboutme.html"><i class="fas fa-store"></i><span>Cửa hàng</span></a></li>
+                            <li><a href="policy.html"><i class="fas fa-file-lines"></i><span>Chính sách</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-middle">
+                <div class="container">
+                    <div class="header-middle-left">
+                        <div class="header-logo">
+                            <a href="index.html">
+                                <img src="Images/logo.png" alt="" class="header-logo-img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-middle-center">
+                        <form action="" class="form-search">
+                            <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn...">
+                            <button type="submit" class="filter-btn"><i class="fa-solid fa-filter"></i><span>Lọc</span></button>
+                        </form>
+                    </div>
+                    <div class="header-middle-right">
+                        <ul class="header-middle-right-list">
+                            <li class="header-middle-right-item" id="user-section">
+                                <i class="fa-solid fa-user"></i>
+                                <a class="text-login" href="login.html">Đăng nhập/ </a><a class="text-login" href="signup.html">Đăng ký</a>
+                            </li>
+                            <li class="header-middle-right-item">
+                                <div class="cart-icon-menu">
+                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <span class="count-product-cart">0</span>
+                                </div>
+                                <span> &nbsp;&nbsp; <a href="cart.html"> Giỏ hàng</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="menu">
+                <div class="main-menu">
+                    <ul>
+                        <li><a href="index.html" style="background-color: orange;">Trang chủ</a></li>
+                        <li><a href="allproduct.html">Sản phẩm »</a>
+                            <ul>
+                                <li><a href="#taopho">Tào phớ ngon tuyệt đỉnh</a></li>
+                                <li><a href="garan.html#garan">Gà rán hảo hạng</a></li>
+                                <li><a href="#">Sữa chua thơm mát lành</a></li>
+                                <li><a href="#">Nước ngọt như nụ cười em</a></li>
+                                <li><a href="#">Tàu hũ truyền thống</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="aboutme.html">Giới thiệu</a></li>
+                        <li><a href="news.html">Tin tức</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="#">Khuyến mại</a></li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('#menu ul > li').hover(
+                        function () {
+                            $(this).find('ul').stop(true, true).slideDown(300);
+                        },
+                        function () {
+                            $(this).find('ul').stop(true, true).slideUp(300);
+                        }
+                    );
+                });
+            </script>
+            <div id="container">
+                <div id="wrapper">
+                    <div class="content-row">
+                        <div class="sidebar">
+                            <h1>DANH MỤC</h1>
+                            <ul>
+                                <li><a href="#">Sữa chua</a></li>
+                                <li><a href="#">Trà sữa</a></li>
+                                <li><a href="#">Nước trái cây</a></li>
+                                <li><a href="#taopho">Tào phớ</a></li>
+                                <li><a href="garan.html#garan">Gà rán</a></li>
+                                <li><a href="#">Tokbokki</a></li>
+                                <li><a href="#">Ăn vặt</a></li>
+                                <li><a href="#">Trái cây</a></li>
+                                <li><a href="#">Chè Sài Gòn</a></li>
+                                <li><a id="end" href="#">Xem thêm >></a></li>
+                            </ul>
+                        </div>
+                        <div id="slideshow">
+                            <div class="slideshow-container">
+                                <img id="slide" src="Images/slide_1.png" />
+                                <button id="back-btn" class="nav-btn back-btn" onclick="back()"></button>
+                                <button id="next-btn" class="nav-btn next-btn" onclick="next()"></button>
+                            </div>
+                        </div>
+                        <script src="js/slideshow.js"></script>
+                        <script>
+                            setInterval(next, 3000);
+                        </script>
+                    </div>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div class="text-content">
+                            <h3>GIAO HÀNG NHANH</h3>
+                            <span>Cho tất cả đơn hàng</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-heart"></i>
+                        <div class="text-content">
+                            <h3>SẢN PHẨM AN TOÀN</h3>
+                            <span>Cam kết chất lượng</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset"></i>
+                        <div class="text-content">
+                            <h3>HỖ TRỢ 24/7</h3>
+                            <span>Tất cả ngày trong tuần</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div class="text-content">
+                            <h3>HOÀN LẠI TIỀN</h3>
+                            <span>Nếu không hài lòng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <section>
+                    <h1>MÓN ĂN BÁN CHẠY</h1>
+                </section>
+            </div>
+            <div class="product" style="width: 80%; margin: auto; height: auto;">
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/tao_pho.png" alt="Tào phớ truyền thống" loading="lazy"/>
+                        <div class="product-name">Tào phớ truyền thống</div>
+                        <div class="product-price">10.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/gavien.jpg" alt="Gà viên sốt phô mai" loading="lazy"/>
+                        <div class="product-name">Gà viên sốt phô mai</div>
+                        <div class="product-price">45.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/nemchuaran.jpg" alt="Nem chua rán" loading="lazy" />
+                        <div class="product-name"><a href="nemchua.html">Nem chua rán</a></div>
+                        <div class="product-price">48.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/phomaique.webp" alt="Phô mai que" loading="lazy"/>
+                        <div class="product-name">Phô mai que</div>
+                        <div class="product-price">35.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/kimbapchien.jpg" alt="Kimbap chiên" loading="lazy"/>
+                        <div class="product-name">Kimbap chiên</div>
+                        <div class="product-price">35.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/xucxichran.jpg" alt="Xúc xích rán" loading="lazy"/>
+                        <div class="product-name">Xúc xích rán</div>
+                        <div class="product-price">10.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/chekhoaideo.jpg" alt="Chè khoai dẻo" loading="lazy"/>
+                        <div class="product-name">Chè khoai dẻo</div>
+                        <div class="product-price">15.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/trachanh.jpg" alt="Trà chanh" loading="lazy"/>
+                        <div class="product-name">Trà quất nha đam</div>
+                        <div class="product-price">15.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+            </div>
+            <div class="avertisement">
+                <a href="#"><img src="Images/banner_1.png" /></a>
+            </div>
+            <div class="category">
+                <h1>KHUYẾN MÃI SIÊU HOT</h1>
+            </div>
+            <div class="product" style="width: 80%; margin: auto; height: auto;">
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/tao_pho.png" alt="Tào phớ truyền thống" loading="lazy"/>
+                        <div class="product-name">Tào phớ truyền thống</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/gavien.jpg" alt="Gà viên sốt phô mai" loading="lazy"/>
+                        <div class="product-name">Gà viên sốt phô mai</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/nemchuaran.jpg" alt="Nem chua rán" loading="lazy"/>
+                        <div class="product-name">Nem chua rán</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/phomaique.webp" alt="Phô mai que" loading="lazy"/>
+                        <div class="product-name">Phô mai que</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/kimbapchien.jpg" alt="Kimbap chiên" loading="lazy"/>
+                        <div class="product-name">Kimbap chiên</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/xucxichran.jpg" alt="Xúc xích rán" loading="lazy"/>
+                        <div class="product-name">Xúc xích rán</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/chekhoaideo.jpg" alt="Chè khoai dẻo" loading="lazy"/>
+                        <div class="product-name">Chè khoai dẻo</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/trachanh.jpg" alt="Trà chanh" loading="lazy"/>
+                        <div class="product-name">Trà quất nha đam</div>
+                        <div class="discount-label">Giảm 20%</div>
+                        <div class="price-container">
+                            <div class="product-price">10.000 đ</div>
+                            <div class="product-sale">12.500 đ</div>
+                        </div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+            </div>
+            <div class="avertisement">
+                <img src="Images/ads_1.jpeg" style="width: 100%;" />
+            </div>
+            <div class="category">
+                <section id="taopho">
+                    <h1>TÀO PHỚ NGON</h1>
+                </section>
+            </div>
+            <div class="product" style="width: 80%; margin: auto; height: auto;" id="product-list">
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/tao_pho.png" alt="Tào phớ truyền thống" loading="lazy"/>
+                        <div class="product-name">Tào phớ truyền thống</div>
+                        <div class="product-price">10.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/taopholongnhan.jpg" alt="Tào phớ nha đam" loading="lazy"/>
+                        <div class="product-name">Tào phớ hạt sen long nhãn</div>
+                        <div class="product-price">15.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/taophocaramen.jpg" alt="Tào phớ caramen" loading="lazy"/>
+                        <div class="product-name">Tào phớ caramen</div>
+                        <div class="product-price">20.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/taophotranchau.webp" alt="Tào phớ trân châu" loading="lazy"/>
+                        <div class="product-name">Tào phớ trân châu</div>
+                        <div class="product-price">15.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/taophothach.jpg" alt="Tào phớ thạch xanh cốt dừa" loading="lazy"/>
+                        <div class="product-name">Tào phớ thạch xanh cốt dừa</div>
+                        <div class="product-price">20.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+                <div class="col-s-6 col-m-3 col-x-4">
+                    <div class="product-item">
+                        <img class="product-photo" src="Images/taophogung.jpg" alt="Tào phớ nha đam " loading="lazy"/>
+                        <div class="product-name">Tào phớ nha đam</div>
+                        <div class="product-price">15.000 đ</div>
+                        <button class="dat-mon">ĐẶT MÓN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <ul class="pagination-list">
+                <a href="#"><li class="pagination-item active">1</li></a>
+                <a href="#"><li class="pagination-item">2</li></a>
+                <a href="#"><li class="pagination-item">3</li></a>
+                <a href="#"><li class="pagination-item">4</li></a>
+                <a href="#"><li class="pagination-item">5</li></a>
+            </ul>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="footer-top-content">
+                        <div class="footer-top-img">
+                            <a href="index.html"><img src="Images/logo_clean.png" alt="Logo Tào Phớ Bình An"></a>
+                        </div>
+                        <div class="footer-top-subbox">
+                            <div class="footer-top-subs">
+                                <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
+                                <p class="footer-top-subs-text">Nhận thông tin mới nhất từ chúng tôi</p>
+                            </div>
+                            <form class="form-ground">
+                                <input type="email" class="form-ground-input" placeholder="Nhập email của bạn">
+                                <button class="form-ground-btn">
+                                    <span>ĐĂNG KÝ</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-area">
+                <div class="container">
+                    <div class="widget-row row">
+                        <div class="widget-row-col-1 col-t-12 col-s-3 col-m-4">
+                            <h3 class="widget-title">Về chúng tôi</h3>
+                            <div class="widget-row-col-content">
+                                <p>Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ hương vị truyền thống
+                                    qua từng bát tào phớ mịn màng, thanh mát. Gần một thập kỷ trôi qua, chúng tôi vẫn
+                                    không ngừng cải thiện chất lượng và phục vụ, để mỗi lần bạn ghé quán là một lần cảm
+                                    thấy thân quen và an lòng.</p>
+                            </div>
+                            <div class="widget-social">
+                                <div class="widget-social-item">
+                                    <a href="https://www.facebook.com/profile.php?id=100054205777778" target="_blank"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                                <div class="widget-social-item">
+                                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-row-col col-t-6 col-s-3 col-m-2">
+                            <h3 class="widget-title">Liên kết</h3>
+                            <ul class="widget-contact">
+                                <li class="widget-contact-item">
+                                    <a href="aboutme.html"><i class="fa-solid fa-arrow-right"></i><span>Về chúng tôi</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Thực đơn</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="policy.html"><i class="fa-solid fa-arrow-right"></i><span>Điều khoản</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="contact.html"><i class="fa-solid fa-arrow-right"></i><span>Liên hệ</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="news.html"><i class="fa-solid fa-arrow-right"></i><span>Tin tức</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget-row-col col-t-6 col-s-3 col-m-3">
+                            <h3 class="widget-title">Thực đơn</h3>
+                            <ul class="widget-contact">
+                                <li class="widget-contact-item">
+                                    <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Tào phớ</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Trà sữa</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Gà rán</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Tàu hũ</span></a>
+                                </li>
+                                <li class="widget-contact-item">
+                                    <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Nước ngọt</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
+                            <h3 class="widget-title">Liên hệ</h3>
+                            <div class="contact">
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div class="contact-content contact-item-phone">
+                                        <span>0353 689 832</span><br>
+                                        <span>0123 456 789</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div class="contact-content conatct-item-email">
+                                        <span>vuduong271105@gmail.com</span><br>
+                                        <span>binhanpho@gmail.com</span>
+                                    </div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-item-icon">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div class="contact-content conatct-item-email">
+                                        <span>Số 34 Đường Phạm Sĩ Ái, Cầu Tình,</span><br>
+                                        <span>Phố Nối, Mỹ Hào, Hưng Yên</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright-wrap">
+            <div class="container">
+                <div class="copyright-content">
+                    <p><a href="admin/admin.html">Copyright 2025 Tào Phớ Bình An</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+        <div class="contact-buttons">
+            <a href="tel:0353689832" class="contact-btn phone-btn" title="Gọi ngay cho chúng tôi">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+            <a href="https://zalo.me/0353689832" target="_blank" class="contact-btn zalo-btn" title="Chat qua Zalo">
+                <i class="fas fa-comment"></i>
+            </a>
+            <a href="https://m.me/your_messenger_id" target="_blank" class="contact-btn messenger-btn" title="Chat qua Messenger">
+                <i class="fab fa-facebook-messenger"></i>
+            </a>
+            <a href="mailto:vuduong271105@gmail.com" class="contact-btn email-btn" title="Gửi email cho chúng tôi">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://maps.app.goo.gl/MSuyVQCZupQukg3q8" target="_blank" class="contact-btn map-btn" title="Xem địa chỉ trên bản đồ">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+        </div>
+        <script src="js/cart.js"></script>
+        <script src="js/search.js"></script>
+        <script src="admin/script.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                loadProducts('product-list');
+                // Kiểm tra trạng thái đăng nhập
+                const userSection = document.getElementById('user-section');
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (user) {
+                    userSection.innerHTML = `
+                        <i class="fa-solid fa-user"></i>
+                        <span style="margin-left: 8px; color: #333;">${user.name}</span>
+                        <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
+                    `;
+                }
+            });
+
+            function logout() {
+                localStorage.removeItem('user');
+                localStorage.removeItem('loginTime');
+                localStorage.removeItem('remember');
+                window.location.reload();
+            }
+        </script>
+</body>
+</html>

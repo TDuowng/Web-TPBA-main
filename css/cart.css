@@ -1,0 +1,295 @@
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.cart-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.cart-item-price,
+.cart-item-qty {
+  font-size: 14px;
+  color: #555;
+}
+
+.cart-item-remove {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.cart-item-remove:hover {
+  background: #ff7875;
+}
+
+.button-x {
+  width: 100%;
+  height: 35px;
+}
+
+.button-x span {
+  float: right;
+  padding: 5px;
+  color: #444444;
+}
+
+/* Popup Cart */
+.popup-cart {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  animation: popupFadeIn 0.3s;
+  margin-top: 20px;
+  text-align: center;
+}
+
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  display: none;
+}
+
+.popup-header {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.popup-header span i {
+  margin-right: 10px;
+  color: #b5292f;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.popup-body {
+  padding: 15px;
+}
+
+.popup-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.popup-product img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.popup-info {
+  flex: 1;
+  line-height: 1.6;
+}
+
+.popup-name {
+  margin-bottom: 5px;
+  text-align: left;
+  font-size: 18px;
+}
+
+.count,
+.cost {
+  text-align: left;
+}
+
+.count span,
+.cost span {
+  color: #444444;
+}
+
+#popup-price {
+  font-size: 14pt;
+  color: #b5292f;
+}
+
+.popup-cart-summary {
+  margin: 10px 0;
+  text-align: left;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.popup-cart-summary i {
+  color: #b5292f;
+}
+
+.popup-checkout {
+  width: 100%;
+  padding: 10px;
+  background-color: #b5292f;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.popup-close {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Cart Empty */
+/* Định dạng giao diện giỏ hàng trống */
+.empty-cart {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.empty-cart-img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+
+.empty-cart p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.shop-now-btn {
+  background-color: #b5292f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.shop-now-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Định dạng container giỏ hàng */
+.cart-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Định dạng bảng giỏ hàng */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+/* Định dạng phần tổng tiền và nút */
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 30px;
+  text-align: right;
+}
+
+.cart-total span {
+  font-weight: bold;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-continue,
+.btn-checkout {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-continue {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-checkout {
+  background-color: #b5292f;
+  color: white;
+}
+
+.btn-checkout:hover {
+  background-color: #c0392b;
+}

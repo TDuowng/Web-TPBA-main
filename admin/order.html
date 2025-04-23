@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Đơn hàng - Tào phớ Bình An</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- CSS thuần -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar col-3">
+            <div class="logo">Tào phớ Bình An</div>
+            <nav>
+                <a href="admin.html" class="menu-item"><i class="fas fa-home"></i> Tổng quan</a>
+                <a href="product.html" class="menu-item"><i class="fas fa-shopping-cart"></i> Sản phẩm</a>
+                <a href="order.html" class="menu-item active"><i class="fas fa-file"></i> Đơn hàng</a>
+                <a href="inventory.html" class="menu-item"><i class="fas fa-box"></i> Kho</a>
+                <a href="customer.html" class="menu-item"><i class="fas fa-user"></i> Khách hàng</a>
+            </nav>
+        </div>
+
+        <!-- Nội dung chính -->
+        <div class="main col-9">
+            <div class="header">
+                <div class="flex items-center">
+                    <button class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">Đơn hàng</div>
+                </div>
+                <div class="header-right">
+                    <input type="text" placeholder="Tìm kiếm..." class="search">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="avatar"></div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="card table-card">
+                    <h3>Danh sách đơn hàng</h3>
+                    <!-- Bộ lọc trạng thái -->
+                    <div class="filter">
+                        <label>Lọc theo trạng thái: </label>
+                        <select onchange="filterOrders(this.value)">
+                            <option value="all">Tất cả</option>
+                            <option value="pending">Đang xử lý</option>
+                            <option value="done">Hoàn thành</option>
+                        </select>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Khách hàng</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="order-table-body">
+                            <!-- Hard-code dữ liệu đơn hàng -->
+                            <tr class="order-row" data-status="done">
+                                <td>DH001</td>
+                                <td>Nguyễn Văn Trỗi</td>
+                                <td>150,000₫</td>
+                                <td><span class="status status-done">Hoàn thành</span></td>
+                                <td>
+                                    <button class="btn-detail" onclick="alert('Chi tiết đơn hàng DH001')">Chi
+                                        tiết</button>
+                                    <button class="btn-delete" onclick="alert('Xóa đơn hàng DH001')"><i
+                                            class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="order-row" data-status="pending">
+                                <td>DH002</td>
+                                <td>Trần Thị Huấn</td>
+                                <td>200,000₫</td>
+                                <td><span class="status status-pending">Đang xử lý</span></td>
+                                <td>
+                                    <button class="btn-detail" onclick="alert('Chi tiết đơn hàng DH002')">Chi
+                                        tiết</button>
+                                    <button class="btn-delete" onclick="alert('Xóa đơn hàng DH002')"><i
+                                            class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="order-row" data-status="done">
+                                <td>DH003</td>
+                                <td>Lê Văn Luyện</td>
+                                <td>300,000₫</td>
+                                <td><span class="status status-done">Hoàn thành</span></td>
+                                <td>
+                                    <button class="btn-detail" onclick="alert('Chi tiết đơn hàng DH003')">Chi
+                                        tiết</button>
+                                    <button class="btn-delete" onclick="alert('Xóa đơn hàng DH003')"><i
+                                            class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr class="order-row" data-status="pending">
+                                <td>DH004</td>
+                                <td>Phạm Thị Nhung</td>
+                                <td>200,000₫</td>
+                                <td><span class="status status-pending">Đang xử lý</span></td>
+                                <td>
+                                    <button class="btn-detail" onclick="alert('Chi tiết đơn hàng DH002')">Chi
+                                        tiết</button>
+                                    <button class="btn-delete" onclick="alert('Xóa đơn hàng DH002')"><i
+                                            class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS để lọc đơn hàng -->
+    <script>
+        function filterOrders(status) {
+            const rows = document.querySelectorAll('.order-row');
+            rows.forEach(row => {
+                if (status === 'all' || row.getAttribute('data-status') === status) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

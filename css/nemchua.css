@@ -1,0 +1,477 @@
+.nemchuaran-container {
+  width: 80%;
+  margin: auto;
+  min-height: 600px;
+  background-color: #fff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.breadcrumb {
+  line-height: 60px;
+  height: 70px;
+  font-size: 14px;
+  color: #666;
+}
+
+#index {
+  text-decoration: none;
+  color: black;
+  font-size: 12pt;
+}
+
+#index:hover {
+  color: #b5292f;
+}
+
+#best-seller {
+  color: black;
+  text-decoration: none;
+  font-size: 12pt;
+}
+
+.breadcrumb span {
+  color: #b5292f;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+.nemchuaran-product {
+  display: flex;
+  gap: 20px;
+}
+
+.nemchuaran-product-img {
+  width: 48%;
+  height: auto;
+}
+
+.nemchuaran-product-img img {
+  width: 100%;
+  height: auto;
+}
+
+.nemchuaran-product-slider {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nemchuaran-product-slider i {
+  cursor: pointer;
+  font-size: 16px;
+  color: #666;
+}
+
+.slider-wrapper {
+  display: flex;
+  gap: 10px;
+  width: 80%;
+  overflow: hidden;
+}
+
+.slider-wrapper img {
+  width: 80px;
+  height: 70px;
+}
+
+.nemchuaran-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.open-desc {
+  width: 90px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: #b5292f;
+  color: #fff;
+}
+
+.add-info {
+  width: 120px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  background-color: #80bb35;
+  color: #fff;
+}
+
+.nemchuaran-product-info {
+  padding-left: 20px;
+  flex: 1;
+}
+
+.nemchuaran-product-name h3 {
+  font-size: 18pt;
+  text-align: left;
+  margin: 15px 0 10px;
+}
+
+.nemchuaran-product-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-label {
+  text-align: start;
+}
+
+.status {
+  height: 25px;
+  width: 100px;
+  color: #fff;
+  background-color: #80bb35;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.status i {
+  font-size: 14pt;
+  line-height: 21px;
+  padding-left: 10px;
+}
+
+.nemchuaran-sell {
+  color: #666;
+}
+
+.price-original {
+  text-decoration: line-through;
+}
+
+#sell {
+  color: #b5292f;
+}
+
+.nemchuaran-price {
+  font-size: 28px;
+  color: #b5292f;
+  margin: 10px 0;
+  float: left;
+  font-weight: bold;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.nutrition-info {
+  font-size: 14px;
+  color: #333;
+  text-align: justify;
+  padding-top: 15px;
+  line-height: 1.5;
+}
+
+.nemchuaran-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.nemchuaran-add {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+#nemchuaran-quantity {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.buy-now {
+  display: flex;
+  gap: 5px;
+  padding: 12px 40px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #b5292f;
+  color: #fff;
+  width: 200px;
+  height: 40px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.share i {
+  margin-left: 10px;
+  color: #666;
+  cursor: pointer;
+}
+
+.nutrifood {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 15px;
+  font-size: 11pt;
+  text-align: justify;
+  color: #666;
+  padding: 15px;
+  line-height: 1.5;
+}
+
+.related-products {
+  margin-top: 30px;
+}
+
+.related-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.related-title span {
+  background-color: #b5292f;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .nemchuaran-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .nemchuaran-product {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nemchuaran-product-img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .nemchuaran-product-info {
+    padding-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nemchuaran-product-name h3 {
+    font-size: 16pt;
+  }
+
+  .nemchuaran-price {
+    float: none;
+    text-align: center;
+  }
+
+  .nemchuaran-sell {
+    text-align: center;
+  }
+
+  .nemchuaran-quantity {
+    justify-content: center;
+  }
+
+  .buy-now {
+    width: 150px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .nutrifood {
+    margin-top: 20px;
+    font-size: 10pt;
+  }
+}
+
+@media (max-width: 768px) {
+  .nemchuaran-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .breadcrumb {
+    line-height: 40px;
+    height: 50px;
+    font-size: 12px;
+  }
+
+  #index,
+  #best-seller,
+  .breadcrumb span {
+    font-size: 10pt;
+  }
+
+  .nemchuaran-product-img {
+    max-width: 400px;
+  }
+
+  .nemchuaran-product-slider {
+    gap: 20px;
+  }
+
+  .slider-wrapper {
+    width: 70%;
+  }
+
+  .slider-wrapper img {
+    width: 60px;
+    height: 50px;
+  }
+
+  .nemchuaran-buttons {
+    justify-content: center;
+  }
+
+  .open-desc,
+  .add-info {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .nemchuaran-product-name h3 {
+    font-size: 14pt;
+  }
+
+  .nemchuaran-price {
+    font-size: 24px;
+  }
+
+  .nutrition-info {
+    font-size: 12px;
+  }
+
+  .nemchuaran-quantity {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .buy-now {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .share {
+    text-align: center;
+  }
+
+  .nutrifood {
+    font-size: 9pt;
+    padding: 10px;
+  }
+
+  .related-title span {
+    font-size: 14px;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nemchuaran-container {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .breadcrumb {
+    line-height: 30px;
+    height: 40px;
+    font-size: 10px;
+  }
+
+  #index,
+  #best-seller,
+  .breadcrumb span {
+    font-size: 8pt;
+  }
+
+  .nemchuaran-product-img {
+    max-width: 100%;
+  }
+
+  .nemchuaran-product-slider {
+    gap: 10px;
+  }
+
+  .slider-wrapper {
+    width: 60%;
+  }
+
+  .slider-wrapper img {
+    width: 50px;
+    height: 40px;
+  }
+
+  .nemchuaran-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .open-desc,
+  .add-info {
+    width: 100%;
+    max-width: 150px;
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .nemchuaran-product-name h3 {
+    font-size: 18pt;
+  }
+
+  .nemchuaran-price {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .nutrition-info {
+    font-size: 11px;
+  }
+
+  .nemchuaran-quantity {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nemchuaran-add,
+  #nemchuaran-quantity {
+    width: 100%;
+    max-width: 50px;
+  }
+
+  .buy-now {
+    width: 100%;
+    max-width: 150px;
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  .share i {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+
+  .nutrifood {
+    margin-top: 10px;
+    font-size: 8pt;
+    padding: 8px;
+  }
+
+  .related-title span {
+    font-size: 12px;
+    padding: 6px 15px;
+  }
+}

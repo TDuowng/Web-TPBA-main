@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản trị Tào phớ Bình An - Sản phẩm</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- CSS thuần -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Container chính, dùng grid 12 cột -->
+  <div class="container">
+    <!-- Sidebar: Chiếm 3 cột, ẩn trên mobile -->
+    <div class="sidebar col-3">
+      <div class="logo">Tào phớ Bình An</div>
+      <nav>
+        <a href="admin.html" class="menu-item"><i class="fas fa-home"></i> Tổng quan</a>
+        <a href="product.html" class="menu-item"><i class="fas fa-shopping-cart"></i> Sản phẩm</a>
+        <a href="order.html" class="menu-item active"><i class="fas fa-file"></i> Đơn hàng</a>
+        <a href="inventory.html" class="menu-item"><i class="fas fa-box"></i> Kho</a>
+        <a href="customer.html" class="menu-item"><i class="fas fa-user"></i> Khách hàng</a>
+      </nav>
+    </div>
+
+    <!-- Nội dung chính: Chiếm 9 cột trên desktop, full trên mobile -->
+    <div class="main col-9">
+      <!-- Header: Cố định trên cùng -->
+      <div class="header">
+        <div class="flex items-center">
+          <!-- Nút hamburger cho mobile -->
+          <button class="hamburger">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="page-title">Sản phẩm</div>
+        </div>
+        <div class="header-right">
+          <input type="text" placeholder="Tìm kiếm..." class="search">
+          <div class="notification">
+            <i class="fas fa-bell"></i>
+            <span class="badge">3</span>
+          </div>
+          <div class="avatar"></div>
+        </div>
+      </div>
+
+      <!-- Nội dung: Bảng và nút thêm -->
+      <div class="content">
+        <div class="card-product">
+          <div class="flex items-center justify-between mb-4">
+            <h3>Quản lý sản phẩm</h3>
+            <button class="btn-add" onclick="openModal('add')">
+              <i class="fas fa-plus"></i> Thêm sản phẩm
+            </button>
+          </div>
+          <table id="product-table">
+            <thead>
+              <tr>
+                <th>Mã</th>
+                <th>Tên</th>
+                <th>Danh mục</th>
+                <th>Giá (VND)</th>
+                <th>Ảnh</th>
+                <th>Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="product-table-body">
+              <!-- Dữ liệu sẽ được JS thêm vào -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Modal: Form thêm/sửa sản phẩm -->
+      <div class="modal" id="product-modal">
+        <div class="modal-content">
+          <h3 id="modal-title">Thêm sản phẩm</h3>
+          <form id="product-form">
+            <div class="form-group">
+              <label>Tên sản phẩm</label>
+              <input type="text" id="product-name" required>
+            </div>
+            <div class="form-group">
+              <label>Danh mục</label>
+              <select id="product-category" required>
+                <option value="Tào phớ">Tào phớ</option>
+                <option value="Trà sữa">Trà sữa</option>
+                <option value="Gà rán">Gà rán</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Giá (VND)</label>
+              <input type="number" id="product-price" min="0" required>
+            </div>
+            <div class="form-group">
+              <label>Ảnh sản phẩm</label>
+              <input type="file" id="product-image" accept="image/*">
+              <img id="image-preview" src="" alt="Preview" style="display: none; max-width: 100px; margin-top: 8px;">
+            </div>
+            <div class="form-group">
+              <label>Mô tả</label>
+              <textarea id="product-description"></textarea>
+            </div>
+            <input type="hidden" id="product-id">
+            <div class="form-actions">
+              <button type="button" class="btn-cancel" onclick="closeModal()">Hủy</button>
+              <button type="submit" class="btn-save">Lưu</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JS thuần -->
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      loadProducts('product-table');
+    });
+  </script>
+</body>
+</html>

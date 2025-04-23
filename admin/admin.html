@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị Tào phớ Bình An</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- CSS thuần -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Container chính, dùng grid 12 cột -->
+    <div class="container">
+        <!-- Sidebar: Chiếm 3 cột, ẩn trên mobile -->
+        <div class="sidebar col-3">
+            <div class="logo">Tào phớ Bình An</div>
+            <nav>
+                <a href="admin.html" class="menu-item"><i class="fas fa-home"></i> Tổng quan</a>
+                <a href="product.html" class="menu-item"><i class="fas fa-shopping-cart"></i> Sản phẩm</a>
+                <a href="order.html" class="menu-item active"><i class="fas fa-file"></i> Đơn hàng</a>
+                <a href="inventory.html" class="menu-item"><i class="fas fa-box"></i> Kho</a>
+                <a href="customer.html" class="menu-item"><i class="fas fa-user"></i> Khách hàng</a>
+            </nav>
+        </div>
+        <!-- Nội dung chính: Chiếm 9 cột trên desktop, full trên mobile -->
+        <div class="main col-9">
+            <!-- Header: Cố định trên cùng -->
+            <div class="header">
+                <div class="flex items-center">
+                    <!-- Nút hamburger cho mobile -->
+                    <button class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="page-title">Tổng quan</div>
+                </div>
+                <div class="header-right">
+                    <input type="text" placeholder="Tìm kiếm..." class="search">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="avatar"></div>
+                </div>
+            </div>
+
+            <!-- Nội dung: Card và bảng -->
+            <div class="content">
+                <!-- Card thống kê: 4 cột trên desktop, 1 cột trên mobile -->
+                <div class="cards">
+                    <div class="card">
+                        <img src="../Images/profits.png" alt="Doanh thu">
+                        <div class="card-content">
+                            <h3>Doanh thu</h3>
+                            <p>2,500,000 VND</p>
+                        </div>
+                    </div>
+                    <div class="card col-3">
+                        <img src="../Images/bill.png" alt="Đơn hàng">
+                        <div class="card-content">
+                            <h3>Đơn hàng</h3>
+                            <p>45</p>
+                        </div>
+                    </div>
+                    <div class="card col-3">
+                        <img src="../Images/join.png" alt="Khách mới">
+                        <div class="card-content">
+                            <h3>Khách mới</h3>
+                            <p>12</p>
+                        </div>
+                    </div>
+                    <div class="card col-3">
+                        <img src="../Images/premium-quality.png" alt="Món bán chạy">
+                        <div>
+                            <h3>Món bán chạy</h3>
+                            <p>Tào phớ truyền thống</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bảng đơn hàng -->
+                <div class="card table-card">
+                    <h3>Đơn hàng gần đây</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã đơn</th>
+                                <th>Khách</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DH001</td>
+                                <td>Vũ Thị Thuỳ Dương</td>
+                                <td>150,000</td>
+                                <td><span class="status status-done">Hoàn thành</span></td>
+                            </tr>
+                            <tr>
+                                <td>DH002</td>
+                                <td>Vũ Vy Thanh</td>
+                                <td>200,000</td>
+                                <td><span class="status status-pending">Đang xử lý</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

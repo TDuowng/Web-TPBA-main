@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Đặt Hàng Thành Công</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
+      .success-container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .success-container img {
+        width: 80px;
+        margin-bottom: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .success-title {
+        color: #2ecc71;
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .order-info {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .order-info div {
+        margin-bottom: 8px;
+      }
+
+      .order-details {
+        margin-top: 30px;
+      }
+
+      .order-details table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+
+      .order-details th,
+      .order-details td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .order-details .product-img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 8px;
+        display: block;
+        border: 1px solid #ccc;
+      }
+
+      .order-details .product-img:not([src]),
+      .order-details .product-img[src=""] {
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+      }
+
+      .success-buttons {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .success-buttons a {
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 0 10px;
+        font-weight: bold;
+        color: white;
+        background-color: #b5292f;
+        transition: background-color 0.3s ease;
+      }
+
+      .success-buttons a:hover {
+        background-color: #8e1f26;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="success-container">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/845/845646.png"
+        alt="Success Icon"
+      />
+      <div class="success-title">Đặt hàng thành công!</div>
+      <p style="text-align: center">
+        Cảm ơn bạn đã mua hàng tại <strong>Tào Phớ Bình An</strong> ❤️
+      </p>
+
+      <div class="order-info">
+        <div><strong>Mã đơn hàng:</strong> <span id="order-id"></span></div>
+        <div><strong>Ngày đặt:</strong> <span id="order-date"></span></div>
+        <div><strong>Tổng tiền:</strong> <span id="order-total"></span></div>
+        <div>
+          <strong>Phương thức thanh toán:</strong>
+          <span id="payment-method"></span>
+        </div>
+        <div><strong>Thông tin khách hàng:</strong></div>
+        <div style="margin-left: 20px">
+          <div>
+            <strong>Họ và tên:</strong> <span id="customer-name"></span>
+          </div>
+          <div><strong>Email:</strong> <span id="customer-email"></span></div>
+          <div>
+            <strong>Số điện thoại:</strong> <span id="customer-phone"></span>
+          </div>
+          <div>
+            <strong>Địa chỉ giao hàng:</strong>
+            <span id="customer-address"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-details">
+        <h3>Chi tiết đơn hàng</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Sản phẩm</th>
+              <th>Giá</th>
+              <th>Số lượng</th>
+              <th>Tổng</th>
+            </tr>
+          </thead>
+          <tbody id="order-items"></tbody>
+        </table>
+      </div>
+
+      <div class="success-buttons">
+        <a href="order.html">Xem đơn hàng</a>
+        <a href="index.html">Về trang chủ</a>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const order = JSON.parse(localStorage.getItem("lastOrder"));
+        if (!order) {
+          document.querySelector(".success-container").innerHTML =
+            "<p>Không tìm thấy thông tin đơn hàng!</p>";
+          return;
+        }
+
+        // Hiển thị thông tin đơn hàng
+        document.getElementById("order-id").textContent = order.orderId;
+        document.getElementById("order-date").textContent = order.orderDate;
+        document.getElementById(
+          "order-total"
+        ).textContent = `${order.total.toLocaleString()}₫`;
+        document.getElementById("payment-method").textContent =
+          order.paymentMethod;
+        document.getElementById("customer-name").textContent =
+          order.customer.name;
+        document.getElementById("customer-email").textContent =
+          order.customer.email || "Không cung cấp";
+        document.getElementById("customer-phone").textContent =
+          order.customer.phone;
+        document.getElementById("customer-address").textContent =
+          order.customer.address;
+
+        // Hiển thị chi tiết sản phẩm
+        const orderItems = document.getElementById("order-items");
+        let html = "";
+        order.cart.forEach((item) => {
+          const total = item.price * item.quantity;
+          const imageSrc = item.img || item.image || "Images/placeholder.jpg";
+          html += `
+          <tr>
+            <td>
+              <img class="product-img" src="${imageSrc}" alt="${
+            item.name
+          }" onerror="this.src='Images/placeholder.jpg';">
+              <span>${item.name}</span>
+            </td>
+            <td>${item.price.toLocaleString()}₫</td>
+            <td>${item.quantity}</td>
+            <td>${total.toLocaleString()}₫</td>
+          </tr>
+        `;
+        });
+        orderItems.innerHTML = html;
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        loadProducts("product-list");
+        // Kiểm tra trạng thái đăng nhập
+        const userSection = document.getElementById("user-section");
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user) {
+          userSection.innerHTML = `
+                  <i class="fa-solid fa-user"></i>
+                  <span style="margin-left: 8px; color: #333;">${user.name}</span>
+                  <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
+              `;
+        }
+      });
+
+      function logout() {
+        localStorage.removeItem("user");
+        localStorage.removeItem("loginTime");
+        localStorage.removeItem("remember");
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>
