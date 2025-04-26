@@ -48,8 +48,7 @@ function loadProducts(containerId) {
     // Trang chủ: Hiển thị dạng card
     products.forEach((product) => {
       const div = document.createElement("div");
-      div.className = "col-s-6 col-m-3 col-x-4";
-      // SỬA Ở ĐÂY: Bỏ nút "Sửa"
+      div.className = "col-s-4 col-m-3 col-t-6";
       div.innerHTML = `
           <div class="product-item">
             <img class="product-photo" src="${
@@ -139,7 +138,7 @@ function deleteProduct(id) {
   }
 }
 
-// SỬA Ở ĐÂY: Chỉ giữ sự kiện cho trang quản trị
+// Sự kiện cho trang quản trị
 document.addEventListener("DOMContentLoaded", () => {
   const productForm = document.getElementById("product-form");
   if (productForm) {
@@ -218,56 +217,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Logic giỏ hàng
-function addToCart(product) {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const existing = cart.find((item) => item.name === product.name);
-
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({ ...product, quantity: 1 });
-  }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartIcon(cart);
-  showPopupCart(product);
-}
-
-function updateCartIcon(cart) {
-  const total = cart.reduce((sum, p) => sum + p.quantity, 0);
-  const cartCount = document.querySelector(".count-product-cart");
-  if (cartCount) cartCount.textContent = total;
-}
-
-function showPopupCart(product) {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const current = cart.find((p) => p.name === product.name);
-
-  document.getElementById("popup-img").src =
-    product.image || "https://via.placeholder.com/100";
-  document.getElementById("popup-name").textContent = product.name;
-  document.getElementById("popup-quantity").textContent = current
-    ? current.quantity
-    : 1;
-  document.getElementById("popup-price").textContent =
-    product.price.toLocaleString() + "₫";
-
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  document.getElementById("popup-cart-count").textContent = totalItems;
-
-  document.getElementById("popup-cart").style.display = "block";
-  document.getElementById("popup-overlay").style.display = "block";
-
-  setTimeout(() => closePopupCart(), 3000);
-}
-
-function closePopupCart() {
-  document.getElementById("popup-cart").style.display = "none";
-  document.getElementById("popup-overlay").style.display = "none";
-}
-
 // Event delegation cho nút "ĐẶT MÓN"
+// Sử dụng hàm addToCart từ cart.js
 document.addEventListener("click", function (event) {
   const button = event.target.closest(".dat-mon");
   if (button) {
@@ -275,7 +226,17 @@ document.addEventListener("click", function (event) {
     const products = getProducts();
     const product = products.find((p) => p.id === productId);
     if (product) {
-      addToCart(product);
+      const formattedProduct = {
+        name: product.name,
+        price: product.price,
+        img: product.image || "https://via.placeholder.com/150",
+      };
+      // Gọi hàm addToCart từ cart.js (được định nghĩa trong cart.js)
+      if (typeof window.addToCart === "function") {
+        window.addToCart(formattedProduct);
+      } else {
+        console.error("Hàm addToCart từ cart.js không được tìm thấy!");
+      }
     } else {
       console.error(`Không tìm thấy sản phẩm với id: ${productId}`);
     }

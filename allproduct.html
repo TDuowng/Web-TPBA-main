@@ -18,7 +18,7 @@
         <span onclick="closePopupCart()"><i class="fa-solid fa-xmark"></i></span>
     </div>
     <div class="popup-header">
-        <span><i class="fa-solid fa-square-check"></i>Sản phẩm này vừa được thêm vào giỏ hàng</span>
+        <span><i class="fa-solid fa-square-check"></i>Sản phẩm đã được thêm vào giỏ hàng</span>
     </div>
     <div class="popup-body">
         <div class="popup-product">
@@ -38,7 +38,10 @@
     </div>
 </div>
 <div id="popup-overlay" class="popup-overlay" onclick="closePopupCart()"></div>
-
+<!--Back to top -->
+<button id="back-to-top" title="Lên đầu trang">
+    <i class="fas fa-arrow-up"></i>
+</button>
 <body>
         <div class="header">
             <div class="top">
@@ -59,6 +62,69 @@
             </div>
             <div class="header-middle">
                 <div class="container">
+                    <div class="hamburger">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <!-- Mobile menu -->
+                    <div id="mobile-menu" class="mobile-menu">
+                        <!-- Đăng nhập / Đăng ký -->
+                        <div class="mobile-auth" id="mobile-auth">
+                            <i class="fa fa-user"></i>
+                            <span id="mobile-user-area" style="margin-left: 8px;">
+                              <a href="login.html" >Đăng nhập</a> hoặc <a href="signup.html">Đăng ký</a>
+                            </span>
+                            <span class="close-btn"><i class="fa fa-times"></i></span>
+                          </div>
+
+                        <!-- Tìm kiếm -->
+                        <form id="mobile-search-form" class="mobile-search">
+                            <input type="text" id="mobile-search-input" placeholder="Tìm sản phẩm..." />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                          </form>
+
+                        <!-- Menu chính -->
+                        <ul class="mobile-nav">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li class="has-sub">
+                                <a href="allproduct.html">Sản phẩm <span class="arrow">›</span></a>
+                                <ul class="submenu">
+                                    <li class="has-sub">
+                                        <a href="#taopho">Tào phớ <span class="arrow">›</span></a>
+                                        <ul class="submenu">
+                                            <li><a href="#taopho">Tào phớ caramen</a></li>
+                                            <li><a href="#taopho">Tào phớ thạch</a></li>
+                                            <li><a href="#taopho">Tào phớ trân châu</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Trà sữa</a></li>
+                                    <li><a href="garan.html#garan">Gà rán</a></li>
+                                    <li><a href="#">Ăn vặt</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="news.html">Tin tức</a></li>
+                            <li><a href="aboutme.html">Giới thiệu</a></li>
+                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="#">Khuyến mãi</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                          $('.hamburger').click(function () {
+                            $('#mobile-menu').addClass('active');
+                          });
+                      
+                          $('.close-btn').click(function () {
+                            $('#mobile-menu').removeClass('active');
+                          });
+                      
+                          // Toggle submenu khi nhấn vào mục có submenu
+                          $('.mobile-nav li.has-sub > a').click(function (e) {
+                            e.preventDefault();
+                            $(this).siblings('.submenu').slideToggle(300);
+                            $(this).parent().siblings().find('.submenu').slideUp(3000);
+                          });
+                        });
+                    </script>                      
                     <div class="header-middle-left">
                         <div class="header-logo">
                             <a href="index.html">
@@ -81,8 +147,10 @@
                             </li>
                             <li class="header-middle-right-item">
                                 <div class="cart-icon-menu">
-                                    <i class="fa-solid fa-basket-shopping"></i>
-                                    <span class="count-product-cart">0</span>
+                                    <a href="cart.html">
+                                        <i class="fa-solid fa-basket-shopping"></i>
+                                        <span class="count-product-cart">0</span>
+                                    </a>
                                 </div>
                                 <span> &nbsp;&nbsp; <a href="cart.html"> Giỏ hàng</a></span>
                             </li>
@@ -90,14 +158,15 @@
                     </div>
                 </div>
             </div>
+            <div class="line-up"></div>
             <div id="menu">
                 <div class="main-menu">
                     <ul>
                         <li><a href="index.html" style="background-color: orange;">Trang chủ</a></li>
-                        <li><a href="allproduct.html">Sản phẩm »</a>
+                        <li><a href="allproduct.html">Sản phẩm</a>
                             <ul>
-                                <li><a href="#">Tào phớ ngon tuyệt đỉnh</a></li>
-                                <li><a href="#">Gà rán hảo hạng</a></li>
+                                <li><a href="index.html#taopho">Tào phớ ngon tuyệt đỉnh</a></li>
+                                <li><a href="garan.html#garan">Gà rán hảo hạng</a></li>
                                 <li><a href="#">Sữa chua thơm mát lành</a></li>
                                 <li><a href="#">Nước ngọt như nụ cười em</a></li>
                                 <li><a href="#">Tàu hũ truyền thống</a></li>
@@ -275,7 +344,7 @@
                 </div>
                 <div class="line"></div>
                 <div class="product">
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/taophogung.jpg" alt="Tào phớ nha đam " loading="lazy"/>
                             <div class="product-name">Tào phớ nha đam</div>
@@ -283,7 +352,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/gavien.jpg" alt="Gà viên sốt phô mai" loading="lazy"/>
                             <div class="product-name">Gà viên sốt phô mai</div>
@@ -291,7 +360,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/nemchuaran.jpg" alt="Nem chua rán" loading="lazy"/>
                             <div class="product-name"><a href="nemchua.html">Nem chua rán</a></div>
@@ -299,7 +368,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/phomaique.webp" alt="Phô mai que" loading="lazy"/>
                             <div class="product-name">Phô mai que</div>
@@ -307,7 +376,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/kimbapchien.jpg" alt="Kimbap chiên" loading="lazy"/>
                             <div class="product-name">Kimbap chiên</div>
@@ -315,7 +384,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/xucxichran.jpg" alt="Xúc xích rán" loading="lazy"/>
                             <div class="product-name">Xúc xích rán</div>
@@ -323,7 +392,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/chekhoaideo.jpg" alt="Chè khoai dẻo" loading="lazy"/>
                             <div class="product-name">Chè khoai dẻo</div>
@@ -331,7 +400,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/trachanh.jpg" alt="Trà chanh" loading="lazy"/>
                             <div class="product-name">Trà quất nha đam</div>
@@ -339,7 +408,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/tao_pho.png" alt="Tào phớ truyền thống" loading="lazy"/>
                             <div class="product-name">Tào phớ truyền thống</div>
@@ -347,7 +416,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/gavien.jpg" alt="Gà viên sốt phô mai" loading="lazy"/>
                             <div class="product-name">Gà viên sốt phô mai</div>
@@ -355,7 +424,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/nemchuaran.jpg" alt="Nem chua rán" loading="lazy"/>
                             <div class="product-name"><a href="nemchua.html">Nem chua rán</a></div>
@@ -363,7 +432,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/phomaique.webp" alt="Phô mai que" loading="lazy"/>
                             <div class="product-name">Phô mai que</div>
@@ -371,7 +440,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/kimbapchien.jpg" alt="Kimbap chiên" loading="lazy"/>
                             <div class="product-name">Kimbap chiên</div>
@@ -379,7 +448,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/xucxichran.jpg" alt="Xúc xích rán" loading="lazy"/>
                             <div class="product-name">Xúc xích rán</div>
@@ -387,7 +456,7 @@
                             <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
                     </div>
-                    <div class="col-s-6 col-m-4 col-x-3">
+                    <div class="col-s-4 col-m-4 col-t-6">
                         <div class="product-item">
                             <img class="product-photo" src="Images/tao_pho.png" alt="Tào phớ truyền thống" loading="lazy"/>
                             <div class="product-name">Tào phớ truyền thống</div>
@@ -398,11 +467,10 @@
                 </div>
                 <div class="pagination">
                     <ul class="pagination-list">
-                        <li class="pagination-item active">1</li>
-                        <li class="pagination-item">2</li>
-                        <li class="pagination-item">3</li>
-                        <li class="pagination-item">4</li>
-                        <li class="pagination-item">5</li>
+                        <a href="#"><li class="pagination-item active">1</li></a>
+                        <a href="#"><li class="pagination-item">2</li></a>
+                        <a href="#"><li class="pagination-item">3</li></a>
+                        <a href="#"><li class="pagination-item"><i class="fa-solid fa-angle-right"></i></li></a>
                     </ul>
                 </div>
             </div>
@@ -434,7 +502,7 @@
         <div class="widget-area">
             <div class="container">
                 <div class="widget-row row">
-                    <div class="widget-row-col-1 col-t-12 col-s-3 col-m-4   ">
+                    <div class="widget-row-col-1 col-t-12 col-s-12 col-m-4">
                         <h3 class="widget-title">Về chúng tôi</h3>
                         <div class="widget-row-col-content">
                             <p>Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ hương vị truyền thống
@@ -500,7 +568,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
+                    <div class="widget-row-col-1 col-t-12 col-s-5 col-m-3">
                         <h3 class="widget-title">Liên hệ</h3>
                         <div class="contact">
                             <div class="contact-item">
@@ -560,29 +628,136 @@
             <i class="fas fa-map-marker-alt"></i>
         </a>
     </div>
+
+    <!-- Nút mở menu lọc -->
+    <div class="filter-toggle-btn">
+        <button id="filter-btn"><i class="fa-solid fa-list"></i></button>
+    </div>
+
+    <!-- Menu lọc dạng slide-in -->
+    <div id="filter-sidebar" class="filter-sidebar">
+        <div class="filter-section">
+            <div class="filter-header">DANH MỤC</div>
+            <ul style="list-style: none;">
+                <li class="list-item">
+                    <div class="menu-item-header">
+                        <span>Sữa chua</span>
+                        <span><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="menu-item-header">
+                        <span>Tào phớ</span>
+                        <span><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                    <ul class="menu-item-content">
+                        <li class="content">Tào phớ truyền thống</li>
+                        <li class="content">Tào phớ trân châu</li>
+                        <li class="content">Tào phớ nước cốt dừa</li>
+                        <li class="content">Tào phớ hạt sen long nhãn</li>
+                        <li class="content">Tào phớ thạch cốt dừa</li>
+                        <li class="content">Tào phớ đậu đỏ</li>
+                        <li class="content">Tào phớ đậu xanh cốt dừa</li>
+                        <li class="content">Tào phớ caramen</li>
+                        <li class="content">Tào phớ nha đam</li>
+                    </ul>
+                </li>
+                <li class="list-item">
+                    <div class="menu-item-header">
+                        <span>Nước trái cây</span>
+                        <span><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="menu-item-header">
+                        <span>Trà sữa</span>
+                        <span><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                </li>
+                <li class="list-item">
+                    <div class="menu-item-header">
+                        <span>Gà rán</span>
+                        <span><i class="fa-solid fa-angle-down"></i></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="filter-section">
+            <div class="filter-header">LOẠI</div>
+            <div class="filter-search">
+                <input type="text" placeholder="Tìm kiếm...">
+            </div>
+            <ul style="list-style: none; margin: 0; padding: 0;">
+                <li style="padding: 10px;">
+                    <input type="checkbox" id="do-uong">
+                    <label for="do-uong">Đồ uống</label>
+                </li>
+                <li style="padding: 10px;">
+                    <input type="checkbox" id="do-an-vat" checked>
+                    <label for="do-an-vat">Đồ ăn vặt</label>
+                </li>
+                <li style="padding: 10px;">
+                    <input type="checkbox" id="khac">
+                    <label for="khac">Khác</label>
+                </li>
+                <li style="padding: 10px;">
+                    <input type="checkbox" id="do-an-nhanh">
+                    <label for="do-an-nhanh">Đồ ăn nhanh</label>
+                </li>
+            </ul>
+        </div>
+        <div class="filter-section">
+            <div class="filter-header">SẢN PHẨM NỔI BẬT</div>
+            <ul class="products-list">
+                <li class="products-item">
+                    <img src="Images/nemchuaran.jpg" alt="Nem chua rán">
+                    <div class="products-info">
+                        <h4><a href="nemchua.html">Nem chua rán</a></h4>
+                        <div class="price">
+                            48,000đ <del>60,000đ</del>
+                        </div>
+                    </div>
+                </li>
+                <li class="products-item">
+                    <img src="Images/phomaique.webp" alt="Phô mai que">
+                    <div class="products-info">
+                        <h4>Phô mai que</h4>
+                        <div class="price">
+                            40,000đ
+                        </div>
+                    </div>
+                </li>
+                <li class="products-item">
+                    <img src="Images/gavien.jpg" alt="Gà viên sốt phô mai">
+                    <div class="products-info">
+                        <h4>Gà viên sốt phô mai</h4>
+                        <div class="price">
+                            35,000đ
+                        </div>
+                    </div>
+                </li>
+                <li class="products-item">
+                    <img src="Images/banhga.jpg" alt="Bánh gà chiên">
+                    <div class="products-info">
+                        <h4>Bánh gà chiên</h4>
+                        <div class="price">
+                            50,000đ
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>  
+    </div>
+
+    <!-- Overlay khi menu mở -->
+    <div id="filter-overlay" class="filter-overlay"></div>
+
     <script src="js/cart.js"></script>
     <script src="admin/script.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Kiểm tra trạng thái đăng nhập
-        const userSection = document.getElementById('user-section');
-        const user = JSON.parse(localStorage.getItem('user'));
-        if (user) {
-            userSection.innerHTML = `
-                <i class="fa-solid fa-user"></i>
-                <span style="margin-left: 8px; color: #333;">${user.name}</span>
-                <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
-            `;
-        }
-    });
+    <script src="js/main.js"></script>
+    <script src="js/product.js"></script>
 
-    function logout() {
-        localStorage.removeItem('user');
-        localStorage.removeItem('loginTime');
-        localStorage.removeItem('remember');
-        window.location.reload();
-    }
-</script>
+
 </body>
 
 </html>

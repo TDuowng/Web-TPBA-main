@@ -12,7 +12,10 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <title>Về chúng tôi - Tào phớ Bình An</title>
 </head>
-
+<!--Back to top -->
+<button id="back-to-top" title="Lên đầu trang">
+    <i class="fas fa-arrow-up"></i>
+</button>
 <body>
     <header>
         <div class="header">
@@ -34,6 +37,51 @@
             </div>
             <div class="header-middle">
                 <div class="container">
+                    <div class="hamburger">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <!-- Mobile menu -->
+                    <div id="mobile-menu" class="mobile-menu">
+                        <!-- Đăng nhập / Đăng ký -->
+                        <div class="mobile-auth" id="mobile-auth">
+                            <i class="fa fa-user"></i>
+                            <span id="mobile-user-area" style="margin-left: 8px;">
+                              <a href="login.html" >Đăng nhập</a> hoặc <a href="signup.html">Đăng ký</a>
+                            </span>
+                            <span class="close-btn"><i class="fa fa-times"></i></span>
+                          </div>
+
+                        <!-- Tìm kiếm -->
+                        <form id="mobile-search-form" class="mobile-search">
+                            <input type="text" id="mobile-search-input" placeholder="Tìm sản phẩm..." />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                          </form>
+
+                        <!-- Menu chính -->
+                        <ul class="mobile-nav">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li class="has-sub">
+                                <a href="allproduct.html">Sản phẩm <span class="arrow">›</span></a>
+                                <ul class="submenu">
+                                    <li class="has-sub">
+                                        <a href="#taopho">Tào phớ <span class="arrow">›</span></a>
+                                        <ul class="submenu">
+                                            <li><a href="#taopho">Tào phớ caramen</a></li>
+                                            <li><a href="#taopho">Tào phớ thạch</a></li>
+                                            <li><a href="#taopho">Tào phớ trân châu</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Trà sữa</a></li>
+                                    <li><a href="garan.html#garan">Gà rán</a></li>
+                                    <li><a href="#">Ăn vặt</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="news.html">Tin tức</a></li>
+                            <li><a href="aboutme.html">Giới thiệu</a></li>
+                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="#">Khuyến mãi</a></li>
+                        </ul>
+                    </div>                 
                     <div class="header-middle-left">
                         <div class="header-logo">
                             <a href="index.html">
@@ -65,11 +113,12 @@
                     </div>
                 </div>
             </div>
+            <div class="line-up"></div>
             <div id="menu">
                 <div class="main-menu">
                     <ul>
                         <li><a href="index.html" style="background-color: orange;">Trang chủ</a></li>
-                        <li><a href="allproduct.html">Sản phẩm »</a>
+                        <li><a href="allproduct.html">Sản phẩm </a>
                             <ul>
                                 <li><a href="#">Tào phớ ngon tuyệt đỉnh</a></li>
                                 <li><a href="#">Gà rán hảo hạng</a></li>
@@ -86,21 +135,6 @@
                     </ul>
                 </div>
             </div>
-            <script>
-                $(document).ready(function () {
-                    // Hover vào mục cha
-                    $('#menu ul > li').hover(
-                        function () {
-                            // Khi hover: tìm thẻ ul con và trượt xuống
-                            $(this).find('ul').stop(true, true).slideDown(300);
-                        },
-                        function () {
-                            // Khi rời chuột: trượt lên
-                            $(this).find('ul').stop(true, true).slideUp(300);
-                        }
-                    );
-                });
-            </script>
     </header>
     <div class="container-product-cart">
         <div class="breadcrumb">
@@ -172,10 +206,10 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
+                <div class="footer-top-img">
+                    <a href="index.html"><img src="Images/logo_clean.png" alt="Logo Tào Phớ Bình An"></a>
+                </div>
                 <div class="footer-top-content">
-                    <div class="footer-top-img">
-                        <img src="Images/logo_clean.png" alt="Logo Tào Phớ Bình An">
-                    </div>
                     <div class="footer-top-subbox">
                         <div class="footer-top-subs">
                             <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
@@ -195,9 +229,9 @@
         <div class="widget-area">
             <div class="container">
                 <div class="widget-row row">
-                    <div class="widget-row-col-1 col-t-12 col-s-3 col-m-4   ">
+                    <div class="widget-row-col-1 col-t-12 col-s-12 col-m-4">
                         <h3 class="widget-title">Về chúng tôi</h3>
-                        <div class="widget-row-col-content">
+                        <div class="  widget-row-col-content ">
                             <p>Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ hương vị truyền thống
                                 qua từng bát tào phớ mịn màng, thanh mát. Gần một thập kỷ trôi qua, chúng tôi vẫn
                                 không ngừng cải thiện chất lượng và phục vụ, để mỗi lần bạn ghé quán là một lần cảm
@@ -223,12 +257,10 @@
                         <h3 class="widget-title">Liên kết</h3>
                         <ul class="widget-contact">
                             <li class="widget-contact-item">
-                                <a href="aboutme.html"><i class="fa-solid fa-arrow-right"></i><span>Về chúng
-                                        tôi</span></a>
+                                <a href="aboutme.html"><i class="fa-solid fa-arrow-right"></i><span>Về chúng tôi</span></a>
                             </li>
                             <li class="widget-contact-item">
-                                <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Thực
-                                        đơn</span></a>
+                                <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Thực đơn</span></a>
                             </li>
                             <li class="widget-contact-item">
                                 <a href="policy.html"><i class="fa-solid fa-arrow-right"></i><span>Điều khoản</span></a>
@@ -245,26 +277,23 @@
                         <h3 class="widget-title">Thực đơn</h3>
                         <ul class="widget-contact">
                             <li class="widget-contact-item">
-                                <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Tào
-                                        phớ</span></a>
+                                <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Tào phớ</span></a>
                             </li>
                             <li class="widget-contact-item">
-                                <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Trà
-                                        sữa</span></a>
+                                <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Trà sữa</span></a>
                             </li>
                             <li class="widget-contact-item">
-                                <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Gà rán</span></a>
+                                <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Gà rán</span></a>
                             </li>
                             <li class="widget-contact-item">
-                                <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Tàu hũ</span></a>
+                                <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Tàu hũ</span></a>
                             </li>
                             <li class="widget-contact-item">
-                                <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Nước
-                                        ngọt</span></a>
+                                <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Nước ngọt</span></a>
                             </li>
                         </ul>
                     </div>
-                    <div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
+                    <div class="widget-row-col-1 col-t-12 col-s-5 col-m-3">
                         <h3 class="widget-title">Liên hệ</h3>
                         <div class="contact">
                             <div class="contact-item">
@@ -326,28 +355,7 @@
     </div>
     <script src="js/cart.js"></script>
     <script src="admin/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            loadProducts('product-list');
-            // Kiểm tra trạng thái đăng nhập
-            const userSection = document.getElementById('user-section');
-            const user = JSON.parse(localStorage.getItem('user'));
-            if (user) {
-                userSection.innerHTML = `
-                    <i class="fa-solid fa-user"></i>
-                    <span style="margin-left: 8px; color: #333;">${user.name}</span>
-                    <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
-                `;
-            }
-        });
-
-        function logout() {
-            localStorage.removeItem('user');
-            localStorage.removeItem('loginTime');
-            localStorage.removeItem('remember');
-            window.location.reload();
-        }
-    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

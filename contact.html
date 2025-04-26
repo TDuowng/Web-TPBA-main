@@ -14,7 +14,10 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <title>Liên hệ với chúng tôi - Tào phớ Bình An</title>
   </head>
-
+<!--Back to top -->
+<button id="back-to-top" title="Lên đầu trang">
+  <i class="fas fa-arrow-up"></i>
+</button>
   <body>
     <header>
       <div class="header">
@@ -51,13 +54,58 @@
         </div>
         <div class="header-middle">
           <div class="container">
-            <div class="header-middle-left">
+            <div class="hamburger">
+              <i class="fa-solid fa-bars"></i>
+          </div>
+          <!-- Mobile menu -->
+          <div id="mobile-menu" class="mobile-menu">
+              <!-- Đăng nhập / Đăng ký -->
+              <div class="mobile-auth" id="mobile-auth">
+                  <i class="fa fa-user"></i>
+                  <span id="mobile-user-area" style="margin-left: 8px;">
+                    <a href="login.html" >Đăng nhập</a> hoặc <a href="signup.html">Đăng ký</a>
+                  </span>
+                  <span class="close-btn"><i class="fa fa-times"></i></span>
+                </div>
+
+              <!-- Tìm kiếm -->
+              <form id="mobile-search-form" class="mobile-search">
+                  <input type="text" id="mobile-search-input" placeholder="Tìm sản phẩm..." />
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+
+              <!-- Menu chính -->
+              <ul class="mobile-nav">
+                  <li><a href="index.html">Trang chủ</a></li>
+                  <li class="has-sub">
+                      <a href="allproduct.html">Sản phẩm <span class="arrow">›</span></a>
+                      <ul class="submenu">
+                          <li class="has-sub">
+                              <a href="#taopho">Tào phớ <span class="arrow">›</span></a>
+                              <ul class="submenu">
+                                  <li><a href="#taopho">Tào phớ caramen</a></li>
+                                  <li><a href="#taopho">Tào phớ thạch</a></li>
+                                  <li><a href="#taopho">Tào phớ trân châu</a></li>
+                              </ul>
+                          </li>
+                          <li><a href="#">Trà sữa</a></li>
+                          <li><a href="garan.html#garan">Gà rán</a></li>
+                          <li><a href="#">Ăn vặt</a></li>
+                      </ul>
+                  </li>
+                  <li><a href="news.html">Tin tức</a></li>
+                  <li><a href="aboutme.html">Giới thiệu</a></li>
+                  <li><a href="contact.html">Liên hệ</a></li>
+                  <li><a href="#">Khuyến mãi</a></li>
+              </ul>
+          </div>                  
+          <div class="header-middle-left">
               <div class="header-logo">
-                <a href="index.html">
-                  <img src="Images/logo.png" alt="" class="header-logo-img" />
-                </a>
+                  <a href="index.html">
+                      <img src="Images/logo.png" alt="" class="header-logo-img">
+                  </a>
               </div>
-            </div>
+          </div>
             <div class="header-middle-center">
               <form action="" class="form-search">
                 <span class="search-btn"
@@ -82,8 +130,10 @@
                 </li>
                 <li class="header-middle-right-item">
                   <div class="cart-icon-menu">
-                    <i class="fa-solid fa-basket-shopping"></i>
-                    <span class="count-product-cart">0</span>
+                    <a href="cart.html">
+                      <i class="fa-solid fa-basket-shopping"></i>
+                      <span class="count-product-cart">0</span>
+                    </a>
                   </div>
                   <span> &nbsp;&nbsp; <a href="cart.html"> Giỏ hàng</a></span>
                 </li>
@@ -91,6 +141,7 @@
             </div>
           </div>
         </div>
+        <div class="line-up"></div>
         <div id="menu">
           <div class="main-menu">
             <ul>
@@ -100,7 +151,7 @@
                 >
               </li>
               <li>
-                <a href="allproduct.html">Sản phẩm »</a>
+                <a href="allproduct.html">Sản phẩm </a>
                   <ul>
                       <li><a href="#">Tào phớ ngon tuyệt đỉnh</a></li>
                       <li><a href="#">Gà rán hảo hạng</a></li>
@@ -119,82 +170,66 @@
         </div>
       </div>
     </header>
-
-    <!-- Jquery cho Menu chính -->
-    <script>
-      $(document).ready(function () {
-        // Hover vào mục cha
-        $("#menu ul > li").hover(
-          function () {
-            // Khi hover: tìm thẻ ul con và trượt xuống
-            $(this).find("ul").stop(true, true).slideDown(300);
-          },
-          function () {
-            // Khi rời chuột: trượt lên
-            $(this).find("ul").stop(true, true).slideUp(300);
-          }
-        );
-      });
-    </script>
     <div class="container-contact">
       <div class="breadcrumb">
         <a id="index" href="index.html">Trang chủ</a>
         <i class="fa-solid fa-angle-right"></i>
         <a id="best-seller">Liên hệ</a>
       </div>
-      <div class="contact-form">
-        <h2>Liên hệ với chúng tôi</h2>
-        <form>
-          <input type="text" placeholder="Họ tên *" required />
-          <input type="email" placeholder="Email *" required />
-          <input type="tel" placeholder="Điện thoại *" required />
-          <textarea placeholder="Nhập nội dung *"></textarea>
-        </form>
-        <button
-          type="button"
-          class="btn-submit"
-          onclick="alert('Đã gửi liên hệ!')"
-        >
-          Gửi liên hệ
-        </button>
-      </div>
-      <!-- Thông tin liên hệ -->
-      <div class="contact-info">
-        <div class="info-item">
-          <div class="contact1">
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <i class="fa-solid fa-location-dot"></i>
+      <div class="contacts">
+        <div class="contact-form">
+          <h2>Liên hệ với chúng tôi</h2>
+          <form>
+            <input type="text" placeholder="Họ tên *" required />
+            <input type="email" placeholder="Email *" required />
+            <input type="tel" placeholder="Điện thoại *" required />
+            <textarea placeholder="Nhập nội dung *"></textarea>
+          </form>
+          <button
+            type="button"
+            class="btn-submit"
+            onclick="alert('Đã gửi liên hệ!')"
+          >
+            Gửi liên hệ
+          </button>
+        </div>
+        <!-- Thông tin liên hệ -->
+        <div class="contact-info">
+          <div class="info-item">
+            <div class="contact1">
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-content conatct-item-email">
+                  <p><strong>Địa chỉ</strong></p>
+                  <span
+                    >Số 34 Đường Phạm Sĩ Ái, Cầu Tình, </span>   <br />
+                  <span>Phố Nối, Mỹ Hào, Hưng Yên</span>
+                </div>
               </div>
-              <div class="contact-content conatct-item-email">
-                <p><strong>Địa chỉ</strong></p>
-                <span
-                  >Số 34 Đường Phạm Sĩ Ái, Cầu Tình, Phố Nối, Mỹ Hào, Hưng
-                  Yên</span
-                >
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contact-content contact-item-phone">
+                  <p><strong>Số điện thoại</strong></p>
+                  <span style="color: orange">0353 689 832</span> <br />
+                  <span>Thứ 2 - Chủ nhật: 8:00 - 18:00</span>
+                </div>
               </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <i class="fa-solid fa-phone"></i>
-              </div>
-              <div class="contact-content contact-item-phone">
-                <p><strong>Số điện thoại</strong></p>
-                <span style="color: orange">0353 689 832</span> <br />
-                <span>Thứ 2 - Chủ nhật: 8:00 - 18:00</span>
-              </div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-item-icon">
-                <i class="fa-solid fa-envelope"></i>
-              </div>
-              <div class="contact-content conatct-item-email">
-                <p><strong>Email</strong></p>
-                <span style="color: orange"
-                  ><a href="mailto:vuduong271105@gmail.com"
-                    >vuduong271105@gmail.com</a
-                  ></span
-                ><br />
+              <div class="contact-item">
+                <div class="contact-item-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-content conatct-item-email">
+                  <p><strong>Email</strong></p>
+                  <span style="color: orange"
+                    ><a href="mailto:vuduong271105@gmail.com"
+                      >vuduong271105@gmail.com</a
+                    ></span
+                  ><br />
+                </div>
               </div>
             </div>
           </div>
@@ -216,182 +251,137 @@
     </div>
     <footer class="footer">
       <div class="container">
-        <div class="footer-top">
-          <div class="footer-top-content">
-            <div class="footer-top-img">
-              <img src="Images/logo_clean.png" alt="Logo Tào Phớ Bình An" />
-            </div>
-            <div class="footer-top-subbox">
-              <div class="footer-top-subs">
-                <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
-                <p class="footer-top-subs-text">
-                  Nhận thông tin mới nhất từ chúng tôi
-                </p>
+          <div class="footer-top">
+              <div class="footer-top-img">
+                  <a href="index.html"><img src="Images/logo_clean.png" alt="Logo Tào Phớ Bình An"></a>
               </div>
-              <form class="form-ground">
-                <input
-                  type="email"
-                  class="form-ground-input"
-                  placeholder="Nhập email của bạn"
-                />
-                <button class="form-ground-btn">
-                  <span>ĐĂNG KÝ</span>
-                  <i class="fa-solid fa-arrow-right"></i>
-                </button>
-              </form>
-            </div>
+              <div class="footer-top-content">
+                  <div class="footer-top-subbox">
+                      <div class="footer-top-subs">
+                          <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
+                          <p class="footer-top-subs-text">Nhận thông tin mới nhất từ chúng tôi</p>
+                      </div>
+                      <form class="form-ground">
+                          <input type="email" class="form-ground-input" placeholder="Nhập email của bạn">
+                          <button class="form-ground-btn">
+                              <span>ĐĂNG KÝ</span>
+                              <i class="fa-solid fa-arrow-right"></i>
+                          </button>
+                      </form>
+                  </div>
+              </div>
           </div>
-        </div>
       </div>
       <div class="widget-area">
-        <div class="container">
-          <div class="widget-row row">
-            <div class="widget-row-col-1 col-t-12 col-s-3 col-m-4">
-              <h3 class="widget-title">Về chúng tôi</h3>
-              <div class="widget-row-col-content">
-                <p>
-                  Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ
-                  hương vị truyền thống qua từng bát tào phớ mịn màng, thanh
-                  mát. Gần một thập kỷ trôi qua, chúng tôi vẫn không ngừng cải
-                  thiện chất lượng và phục vụ, để mỗi lần bạn ghé quán là một
-                  lần cảm thấy thân quen và an lòng.
-                </p>
+          <div class="container">
+              <div class="widget-row row">
+                  <div class="widget-row-col-1 col-t-12 col-s-12 col-m-4">
+                      <h3 class="widget-title">Về chúng tôi</h3>
+                      <div class="  widget-row-col-content ">
+                          <p>Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ hương vị truyền thống
+                              qua từng bát tào phớ mịn màng, thanh mát. Gần một thập kỷ trôi qua, chúng tôi vẫn
+                              không ngừng cải thiện chất lượng và phục vụ, để mỗi lần bạn ghé quán là một lần cảm
+                              thấy thân quen và an lòng.</p>
+                      </div>
+                      <div class="widget-social">
+                          <div class="widget-social-item">
+                              <a href="https://www.facebook.com/profile.php?id=100054205777778" target="_blank"><i
+                                      class="fab fa-facebook-f"></i></a>
+                          </div>
+                          <div class="widget-social-item">
+                              <a href="#"><i class="fab fa-twitter"></i></a>
+                          </div>
+                          <div class="widget-social-item">
+                              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                          </div>
+                          <div class="widget-social-item">
+                              <a href="#"><i class="fab fa-whatsapp"></i></a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="widget-row-col col-t-6 col-s-3 col-m-2">
+                      <h3 class="widget-title">Liên kết</h3>
+                      <ul class="widget-contact">
+                          <li class="widget-contact-item">
+                              <a href="aboutme.html"><i class="fa-solid fa-arrow-right"></i><span>Về chúng tôi</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Thực đơn</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="policy.html"><i class="fa-solid fa-arrow-right"></i><span>Điều khoản</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="contact.html"><i class="fa-solid fa-arrow-right"></i><span>Liên hệ</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="news.html"><i class="fa-solid fa-arrow-right"></i><span>Tin tức</span></a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="widget-row-col col-t-6 col-s-3 col-m-3">
+                      <h3 class="widget-title">Thực đơn</h3>
+                      <ul class="widget-contact">
+                          <li class="widget-contact-item">
+                              <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Tào phớ</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Trà sữa</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Gà rán</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Tàu hũ</span></a>
+                          </li>
+                          <li class="widget-contact-item">
+                              <a href="index.html"><i class="fa-solid fa-arrow-right"></i><span>Nước ngọt</span></a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="widget-row-col-1 col-t-12 col-s-5 col-m-3">
+                      <h3 class="widget-title">Liên hệ</h3>
+                      <div class="contact">
+                          <div class="contact-item">
+                              <div class="contact-item-icon">
+                                  <i class="fa-solid fa-phone"></i>
+                              </div>
+                              <div class="contact-content contact-item-phone">
+                                  <span>0353 689 832</span><br>
+                                  <span>0123 456 789</span>
+                              </div>
+                          </div>
+                          <div class="contact-item">
+                              <div class="contact-item-icon">
+                                  <i class="fa-solid fa-envelope"></i>
+                              </div>
+                              <div class="contact-content conatct-item-email">
+                                  <span>vuduong271105@gmail.com</span><br>
+                                  <span>binhanpho@gmail.com</span>
+                              </div>
+                          </div>
+                          <div class="contact-item">
+                              <div class="contact-item-icon">
+                                  <i class="fa-solid fa-location-dot"></i>
+                              </div>
+                              <div class="contact-content conatct-item-email">
+                                  <span>Số 34 Đường Phạm Sĩ Ái, Cầu Tình,</span><br>
+                                  <span>Phố Nối, Mỹ Hào, Hưng Yên</span>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <div class="widget-social">
-                <div class="widget-social-item">
-                  <a
-                    href="https://www.facebook.com/profile.php?id=100054205777778"
-                    target="_blank"
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                </div>
-                <div class="widget-social-item">
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="widget-social-item">
-                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <div class="widget-social-item">
-                  <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-              </div>
-            </div>
-            <div class="widget-row-col col-t-6 col-s-3 col-m-2">
-              <h3 class="widget-title">Liên kết</h3>
-              <ul class="widget-contact">
-                <li class="widget-contact-item">
-                  <a href="aboutme.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Về chúng tôi</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="allproduct.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Thực đơn</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="policy.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Điều khoản</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="contact.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Liên hệ</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="news.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Tin tức</span></a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="widget-row-col col-t-6 col-s-3 col-m-3">
-              <h3 class="widget-title">Thực đơn</h3>
-              <ul class="widget-contact">
-                <li class="widget-contact-item">
-                  <a href="allproduct.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Tào phớ</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="allproduct.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Trà sữa</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="allproduct.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Gà rán</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="allproduct.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Tàu hũ</span></a
-                  >
-                </li>
-                <li class="widget-contact-item">
-                  <a href="allproduct.html"
-                    ><i class="fa-solid fa-arrow-right"></i
-                    ><span>Nước ngọt</span></a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
-              <h3 class="widget-title">Liên hệ</h3>
-              <div class="contact">
-                <div class="contact-item">
-                  <div class="contact-item-icon">
-                    <i class="fa-solid fa-phone"></i>
-                  </div>
-                  <div class="contact-content contact-item-phone">
-                    <span>0353 689 832</span><br />
-                    <span>0123 456 789</span>
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <div class="contact-item-icon">
-                    <i class="fa-solid fa-envelope"></i>
-                  </div>
-                  <div class="contact-content conatct-item-email">
-                    <span>vuduong271105@gmail.com</span><br />
-                    <span>binhanpho@gmail.com</span>
-                  </div>
-                </div>
-                <div class="contact-item">
-                  <div class="contact-item-icon">
-                    <i class="fa-solid fa-location-dot"></i>
-                  </div>
-                  <div class="contact-content conatct-item-email">
-                    <span>Số 34 Đường Phạm Sĩ Ái, Cầu Tình,</span><br />
-                    <span>Phố Nối, Mỹ Hào, Hưng Yên</span>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
       </div>
-    </footer>
-    <div class="copyright-wrap">
+  </footer>
+  <div class="copyright-wrap">
       <div class="container">
-        <div class="copyright-content">
-          <p>
-            <a href="admin/admin.html">Copyright 2025 Tào Phớ Bình An</a>. All
-            Rights Reserved.
-          </p>
-        </div>
+          <div class="copyright-content">
+              <p><a href="admin/admin.html">Copyright 2025 Tào Phớ Bình An</a>. All Rights Reserved.</p>
+          </div>
       </div>
-    </div>
+  </div>
     <div class="contact-buttons">
       <a href="tel:0353689832" class="contact-btn phone-btn" title="Gọi ngay cho chúng tôi">
           <i class="fas fa-phone-alt"></i>
@@ -409,26 +399,7 @@
           <i class="fas fa-map-marker-alt"></i>
       </a>
   </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Kiểm tra trạng thái đăng nhập
-        const userSection = document.getElementById("user-section");
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (user) {
-          userSection.innerHTML = `
-              <i class="fa-solid fa-user"></i>
-              <span style="margin-left: 8px; color: #333;">${user.name}</span>
-              <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
-          `;
-        }
-      });
-
-      function logout() {
-        localStorage.removeItem("user");
-        localStorage.removeItem("loginTime");
-        localStorage.removeItem("remember");
-        window.location.reload();
-      }
-    </script>
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

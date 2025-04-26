@@ -23,19 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
     return products;
   }
 
-  // Kết hợp danh sách sản phẩm tĩnh và động
+  // Kết hợp danh sách sản phẩm tĩnh và động, chuẩn hóa thuộc tính img
   function getAllProducts() {
     const staticProducts = getStaticProducts();
     const dynamicProducts = getDynamicProducts();
-    const allProducts = [...staticProducts, ...dynamicProducts].reduce(
-      (unique, product) => {
-        if (!unique.some((p) => p.name === product.name)) {
-          unique.push(product);
-        }
-        return unique;
-      },
-      []
-    );
+    const normalizedDynamicProducts = dynamicProducts.map((product) => ({
+      name: product.name,
+      price: product.price,
+      img: product.image || "https://via.placeholder.com/100",
+    }));
+    const allProducts = [
+      ...staticProducts,
+      ...normalizedDynamicProducts,
+    ].reduce((unique, product) => {
+      if (!unique.some((p) => p.name === product.name)) {
+        unique.push(product);
+      }
+      return unique;
+    }, []);
     console.log("All products:", allProducts);
     return allProducts;
   }
@@ -48,21 +53,43 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Ẩn các section tĩnh và banner trên index.html
-    const staticSections = document.querySelectorAll(
-      ".product:not(#product-list), .category, .avertisement"
-    );
-    staticSections.forEach((section) => {
-      section.style.display =
-        products.length > 0 || containerId === "product-list"
-          ? "none"
-          : "block";
-    });
+    // Xác định trang hiện tại
+    const currentPage = window.location.pathname;
+
+    // Ẩn/hiện các section tĩnh tùy theo trang
+    if (currentPage.includes("index.html")) {
+      const staticSections = document.querySelectorAll(
+        ".product:not(#product-list), .category, .avertisement"
+      );
+      staticSections.forEach((section) => {
+        section.style.display =
+          products.length > 0 || containerId === "product-list"
+            ? "none"
+            : "block";
+      });
+    } else if (currentPage.includes("garan.html")) {
+      const staticProductSection = document.querySelector(".product");
+      if (staticProductSection) {
+        // Ẩn .product khi có kết quả tìm kiếm, hiển thị khi không có
+        staticProductSection.style.display =
+          products.length > 0 ? "none" : "block";
+        console.log(
+          `Set display of .product to ${staticProductSection.style.display}`
+        );
+      } else {
+        console.error(
+          "Static product section (.product) not found in garan.html"
+        );
+      }
+    }
+
+    // Xóa nội dung cũ trong container
+    container.innerHTML = "";
 
     if (products.length === 0) {
       container.innerHTML = `
           <div class="empty-search">
-            <img src="Images/search.png" alt="No results found" style="width: 270px; height: auto"/>
+            <img id="search-image" src="Images/search.png" alt="No results found" style="width: 200px; height: auto"/>
             <p style="margin-bottom: 20px;">Không tìm thấy sản phẩm nào khớp với tìm kiếm.</p>
             <a href="index.html"><button class="shop-now-btn">Xem tất cả món</button></a>
           </div>
@@ -70,17 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       container.innerHTML = `
           <div class="category">
-            
+            <h1>KẾT QUẢ TÌM KIẾM</h1>
           </div>
         `;
       products.forEach((product) => {
         const productHTML = `
-            <div class="col-s-6 col-m-3 col-x-4">
+            <div class="col-s-4 col-m-3 col-t-6">
               <div class="product-item">
                 <img class="product-photo" src="${
-                  product.img ||
-                  products.image ||
-                  "https://via.placeholder.com/100"
+                  product.img || "https://via.placeholder.com/100"
                 }" alt="${product.name}" loading="lazy"/>
                 <div class="product-name">${product.name}</div>
                 <div class="product-price">${product.price.toLocaleString()} đ</div>
@@ -100,12 +125,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Hàm tìm kiếm
-  function searchProducts(query, containerId = "product-list") {
-    const finalContainerId =
-      document.getElementById("search-results") &&
-      window.location.pathname.includes("cart.html")
-        ? "search-results"
-        : containerId;
+  function searchProducts(query, containerId) {
+    const currentPage = window.location.pathname;
+    let finalContainerId = containerId;
+    if (currentPage.includes("index.html")) {
+      finalContainerId = "product-list";
+    } else if (
+      currentPage.includes("garan.html") ||
+      currentPage.includes("cart.html")
+    ) {
+      finalContainerId = "search-results";
+    }
+
     const allProducts = getAllProducts();
     const filteredProducts = allProducts.filter((product) =>
       product.name.toLowerCase().includes(query.toLowerCase())
@@ -137,19 +168,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Khi xóa từ khóa, hiển thị lại các section tĩnh và banner
     searchInput.addEventListener("input", () => {
+      const currentPage = window.location.pathname;
       if (!searchInput.value.trim()) {
-        const staticSections = document.querySelectorAll(
-          ".product:not(#product-list), .category, .avertisement"
-        );
-        staticSections.forEach((section) => {
-          section.style.display = "block";
-        });
-        const container = document.getElementById("product-list");
-        if (container) {
-          container.innerHTML = ""; // Xóa kết quả tìm kiếm
-          // Gọi lại loadProducts để render sản phẩm động
-          if (typeof loadProducts === "function") {
-            loadProducts("product-list");
+        if (currentPage.includes("index.html")) {
+          const staticSections = document.querySelectorAll(
+            ".product:not(#product-list), .category, .avertisement"
+          );
+          staticSections.forEach((section) => {
+            section.style.display = "block";
+          });
+          const container = document.getElementById("product-list");
+          if (container) {
+            container.innerHTML = "";
+            if (typeof loadProducts === "function") {
+              loadProducts("product-list");
+            }
+          }
+        } else if (currentPage.includes("garan.html")) {
+          const staticProductSection = document.querySelector(".product");
+          const searchResults = document.getElementById("search-results");
+          if (staticProductSection) {
+            staticProductSection.style.display = "block";
+            console.log(
+              `Set display of .product to ${staticProductSection.style.display} (input cleared)`
+            );
+          }
+          if (searchResults) {
+            searchResults.innerHTML = "";
           }
         }
       }
@@ -168,25 +213,18 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Filter button not found");
   }
 
-  // Gắn sự kiện cho nút "ĐẶT MÓN"
-  function attachCartEvents() {
-    document.querySelectorAll(".dat-mon").forEach((button) => {
-      button.removeEventListener("click", handleAddToCart);
-      button.addEventListener("click", handleAddToCart);
+  /* Tìm kiếm trên mobile */
+  const mobileSearchForm = document.getElementById("mobile-search-form");
+  const mobileSearchInput = document.getElementById("mobile-search-input");
+
+  if (mobileSearchForm && mobileSearchInput) {
+    mobileSearchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const query = mobileSearchInput.value.trim();
+      if (query) {
+        searchProducts(query);
+        document.getElementById("mobile-menu").classList.remove("active");
+      }
     });
-  }
-
-  function handleAddToCart() {
-    const productItem = this.closest(".product-item");
-    const name = productItem.querySelector(".product-name").textContent;
-    const priceText = productItem
-      .querySelector(".product-price")
-      .textContent.replace(/[^\d]/g, "");
-    const price = parseInt(priceText);
-    const img = productItem.querySelector(".product-photo").getAttribute("src");
-
-    const product = { name, price, img };
-    addToCart(product); // Từ cart.js
-    showPopupCart(product); // Từ cart.js
   }
 });

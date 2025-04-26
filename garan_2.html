@@ -19,7 +19,7 @@
         <span onclick="closePopupCart()"><i class="fa-solid fa-xmark"></i></span>
     </div>
     <div class="popup-header">
-        <span><i class="fa-solid fa-square-check"></i>Sản phẩm này vừa được thêm vào giỏ hàng</span>
+        <span><i class="fa-solid fa-square-check"></i>Sản phẩm đã được thêm vào giỏ hàng</span>
     </div>
     <div class="popup-body">
         <div class="popup-product">
@@ -39,199 +39,201 @@
     </div>
 </div>
 <div id="popup-overlay" class="popup-overlay" onclick="closePopupCart()"></div>
-  <body>
-    <div class="header">
-      <div class="top">
-        <div class="top-content">
-          <div class="top-left">
-            <span id="hotline"> Hotline: <b> 0353 689 832 </b> </span>
-            <span id="address"
-              >Địa chỉ: Số 34 Đường Phạm Sĩ Ái, Cầu Tình, Phố Nối, Mỹ Hào, Hưng
-              Yên</span
-            >
-          </div>
-          <div class="top-right">
-            <ul class="top-list">
-              <li>
-                <a href="aboutme.html"
-                  ><i class="fas fa-info-circle"></i><span>Giới thiệu</span></a
-                >
-              </li>
-              <li>
-                <a href="aboutme.html"
-                  ><i class="fas fa-store"></i><span>Cửa hàng</span></a
-                >
-              </li>
-              <li>
-                <a href="policy.html"
-                  ><i class="fas fa-file-lines"></i><span>Chính sách</span></a
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="header-middle">
-        <div class="container">
-          <div class="header-middle-left">
-            <div class="header-logo">
-              <a href="index.html">
-                <img src="Images/logo.png" alt="" class="header-logo-img" />
-              </a>
-            </div>
-          </div>
-          <div class="header-middle-center">
-            <form action="" class="form-search">
-              <span class="search-btn"
-                ><i class="fa-solid fa-magnifying-glass"></i
-              ></span>
-              <input
-                type="text"
-                class="form-search-input"
-                placeholder="Tìm kiếm món ăn..."
-              />
-              <button class="filter-btn">
-                <i class="fa-solid fa-filter"></i><span>Lọc</span>
-              </button>
-            </form>
-          </div>
-          <div class="header-middle-right">
-            <ul class="header-middle-right-list">
-              <li class="header-middle-right-item" id="user-section">
-                <i class="fa-solid fa-user"></i>
-                <a class="text-login" href="login.html">Đăng nhập/ </a
-                ><a class="text-login" href="signup.html">Đăng ký</a>
-              </li>
-              <li class="header-middle-right-item">
-                <div class="cart-icon-menu">
-                  <i class="fa-solid fa-basket-shopping"></i>
-                  <span class="count-product-cart">0</span>
+<!--Back to top -->
+<button id="back-to-top" title="Lên đầu trang">
+  <i class="fas fa-arrow-up"></i>
+</button>
+<body>
+    <header>
+        <div class="header">
+            <div class="top">
+                <div class="top-content ">
+                    <div class="top-left">
+                        <span id="hotline"> Hotline: <b> 0353 689 832 </b> </span>
+                        <span id="address">Địa chỉ: Số 34 Đường Phạm Sĩ Ái, Phố Nối, Mỹ Hào, Hưng Yên</span>
+                    </div>
+                    <div class="top-right ">
+                        <ul class="top-list">
+                            <li><a href="aboutme.html"><i class="fas fa-info-circle"></i><span>Giới thiệu</span></a></li>
+                            <li><a href="aboutme.html"><i class="fas fa-store"></i><span>Cửa hàng</span></a></li>
+                            <li><a href="policy.html"><i class="fas fa-file-lines"></i><span>Chính sách</span></a></li>
+                        </ul>
+                    </div>
                 </div>
-                <span> &nbsp;&nbsp; <a href="cart.html"> Giỏ hàng</a></span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div id="menu">
-        <div class="main-menu">
-          <ul>
-            <li>
-              <a href="index.html" style="background-color: orange"
-                >Trang chủ</a
-              >
-            </li>
-            <li>
-              <li><a href="allproduct.html">Sản phẩm »</a>
-                <ul>
-                    <li><a href="#">Tào phớ ngon tuyệt đỉnh</a></li>
-                    <li><a href="#">Gà rán hảo hạng</a></li>
-                    <li><a href="#">Sữa chua thơm mát lành</a></li>
-                    <li><a href="#">Nước ngọt như nụ cười em</a></li>
-                    <li><a href="#">Tàu hũ truyền thống</a></li>
-                </ul>
-            </li>
-            </li>
-            <li><a href="aboutme.html">Giới thiệu</a></li>
-            <li><a href="news.html">Tin tức</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
-            <li><a href="#">Khuyến mại</a></li>
-          </ul>
-        </div>
-      </div>
-      <script>
-        $(document).ready(function () {
-          // Hover vào mục cha
-          $("#menu ul > li").hover(
-            function () {
-              // Khi hover: tìm thẻ ul con và trượt xuống
-              $(this).find("ul").stop(true, true).slideDown(300);
-            },
-            function () {
-              // Khi rời chuột: trượt lên
-              $(this).find("ul").stop(true, true).slideUp(300);
-            }
-          );
-        });
-      </script>
-      <div id="container">
-        <div id="wrapper">
-          <div class="content-row">
-            <div class="sidebar">
-              <h1>DANH MỤC</h1>
-              <ul>
-                <li><a href="#">Sữa chua</a></li>
-                <li><a href="#">Trà sữa</a></li>
-                <li><a href="#">Nước trái cây</a></li>
-                <li><a href="index.html#taopho">Tào phớ</a></li>
-                <li><a href="garan.html#garan">Gà rán</a></li>
-                <li><a href="#">Tokbokki</a></li>
-                <li><a href="#">Ăn vặt</a></li>
-                <li><a href="#">Trái cây</a></li>
-                <li><a href="#">Chè Sài Gòn</a></li>
-                <li><a id="end" href="#">Xem thêm >></a></li>
-              </ul>
             </div>
-            <div id="slideshow">
-              <div class="slideshow-container">
-                <img id="slide" src="Images/slide_1.png" />
-                <button
-                  id="back-btn"
-                  class="nav-btn back-btn"
-                  onclick="back()"
-                ></button>
-                <button
-                  id="next-btn"
-                  class="nav-btn next-btn"
-                  onclick="next()"
-                ></button>
-              </div>
-            </div>
-            <script>
-              setInterval(next, 3000);
-            </script>
-          </div>
-        </div>
-        <!-- Features Section -->
-        <div class="features">
-          <div class="feature-item">
-            <i class="fas fa-shipping-fast"></i>
-            <div class="text-content">
-              <h3>GIAO HÀNG NHANH</h3>
-              <span>Cho tất cả đơn hàng</span>
-            </div>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-heart"></i>
-            <div class="text-content">
-              <h3>SẢN PHẨM AN TOÀN</h3>
-              <span>Cam kết chất lượng</span>
-            </div>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-headset"></i>
-            <div class="text-content">
-              <h3>HỖ TRỢ 24/7</h3>
-              <span>Tất cả ngày trong tuần</span>
-            </div>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-money-bill-wave"></i>
-            <div class="text-content">
-              <h3>HOÀN LẠI TIỀN</h3>
-              <span>Nếu không hài lòng</span>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div class="header-middle">
+                <div class="container">
+                    <div class="hamburger">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <!-- Mobile menu -->
+                    <div id="mobile-menu" class="mobile-menu">
+                        <!-- Đăng nhập / Đăng ký -->
+                        <div class="mobile-auth" id="mobile-auth">
+                            <i class="fa fa-user"></i>
+                            <span id="mobile-user-area" style="margin-left: 8px;">
+                              <a href="login.html" >Đăng nhập</a> hoặc <a href="signup.html">Đăng ký</a>
+                            </span>
+                            <span class="close-btn"><i class="fa fa-times"></i></span>
+                          </div>
 
+                        <!-- Tìm kiếm -->
+                        <form id="mobile-search-form" class="mobile-search">
+                            <input type="text" id="mobile-search-input" placeholder="Tìm sản phẩm..." />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                          </form>
+
+                        <!-- Menu chính -->
+                        <ul class="mobile-nav">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li class="has-sub">
+                                <a href="allproduct.html">Sản phẩm <span class="arrow">›</span></a>
+                                <ul class="submenu">
+                                    <li class="has-sub">
+                                        <a href="#taopho">Tào phớ <span class="arrow">›</span></a>
+                                        <ul class="submenu">
+                                            <li><a href="#taopho">Tào phớ caramen</a></li>
+                                            <li><a href="#taopho">Tào phớ thạch</a></li>
+                                            <li><a href="#taopho">Tào phớ trân châu</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Trà sữa</a></li>
+                                    <li><a href="garan.html#garan">Gà rán</a></li>
+                                    <li><a href="#">Ăn vặt</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="news.html">Tin tức</a></li>
+                            <li><a href="aboutme.html">Giới thiệu</a></li>
+                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li><a href="#">Khuyến mãi</a></li>
+                        </ul>
+                    </div>                
+                    <div class="header-middle-left">
+                        <div class="header-logo">
+                            <a href="index.html">
+                                <img src="Images/logo.png" alt="" class="header-logo-img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-middle-center">
+                        <form action="" class="form-search">
+                            <span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn...">
+                            <button type="submit" class="filter-btn"><i class="fa-solid fa-filter"></i><span>Lọc</span></button>
+                        </form>
+                    </div>
+                    <div class="header-middle-right">
+                        <ul class="header-middle-right-list">
+                            <li class="header-middle-right-item" id="user-section">
+                                <i class="fa-solid fa-user"></i>
+                                <a class="text-login" href="login.html">Đăng nhập/ </a><a class="text-login" href="signup.html">Đăng ký</a>
+                            </li>
+                            <li class="header-middle-right-item">
+                                <div class="cart-icon-menu">
+                                    <a href="cart.html" class="cart-icon">
+                                        <i class="fa-solid fa-basket-shopping"></i>
+                                        <span class="count-product-cart">0</span>
+                                    </a>
+                                </div>
+                                <span> &nbsp;&nbsp; <a href="cart.html"> Giỏ hàng</a></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="line-up"></div>
+            <div id="menu">
+                <div class="main-menu">
+                    <ul>
+                        <li><a href="index.html" style="background-color: orange;">Trang chủ</a></li>
+                        <li><a href="allproduct.html">Sản phẩm</a>
+                            <ul>
+                                <li><a href="#taopho">Tào phớ ngon tuyệt đỉnh</a></li>
+                                <li><a href="garan.html#garan">Gà rán hảo hạng</a></li>
+                                <li><a href="#">Sữa chua thơm mát lành</a></li>
+                                <li><a href="#">Nước ngọt như nụ cười em</a></li>
+                                <li><a href="#">Tàu hũ truyền thống</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="aboutme.html">Giới thiệu</a></li>
+                        <li><a href="news.html">Tin tức</a></li>
+                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li><a href="#">Khuyến mại</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="container">
+                <div id="wrapper">
+                    <div class="content-row">
+                        <div class="top-section" >
+                            <div class="sidebar">
+                                <h1>DANH MỤC</h1>
+                                <ul>
+                                    <li><a href="#">Sữa chua</a></li>
+                                    <li><a href="#">Trà sữa</a></li>
+                                    <li><a href="#">Nước trái cây</a></li>
+                                    <li><a href="#taopho">Tào phớ</a></li>
+                                    <li><a href="garan.html#garan">Gà rán</a></li>
+                                    <li><a href="#">Tokbokki</a></li>
+                                    <li><a href="#">Ăn vặt</a></li>
+                                    <li><a href="#">Trái cây</a></li>
+                                    <li><a href="#">Chè Sài Gòn</a></li>
+                                    <li><a id="end" href="#">Xem thêm >></a></li>
+                                </ul>
+                            </div>
+                            <div id="slideshow">
+                                <div class="slideshow-container">
+                                    <img id="slide" src="Images/slide_1.png" />
+                                    <button id="back-btn" class="nav-btn back-btn" onclick="back()"></button>
+                                    <button id="next-btn" class="nav-btn next-btn" onclick="next()"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <script src="js/slideshow.js"></script>
+                        <script>
+                            setInterval(next, 3000);
+                        </script>
+                    </div>
+                </div>
+                <div class="features">
+                    <div class="feature-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <div class="text-content">
+                            <h3>GIAO HÀNG NHANH</h3>
+                            <span>Cho tất cả đơn hàng</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-heart"></i>
+                        <div class="text-content">
+                            <h3>SẢN PHẨM AN TOÀN</h3>
+                            <span>Cam kết chất lượng</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset"></i>
+                        <div class="text-content">
+                            <h3>HỖ TRỢ 24/7</h3>
+                            <span>Tất cả ngày trong tuần</span>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <div class="text-content">
+                            <h3>HOÀN LẠI TIỀN</h3>
+                            <span>Nếu không hài lòng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
       <div class="category">
         <section id="garan">
           <h1>GÀ RÁN</h1>
         </section>
       </div>
-      <div class="product" style="width: 80%; margin: auto; height: auto">
-        <div class="col-s-6 col-m-3 col-x-4">
+      <div class="product">
+        <div class="col-s-4 col-m-3 col-t-6">
           <div class="product-item">
             <img
               class="product-photo"
@@ -243,7 +245,7 @@
             <button class="dat-mon">ĐẶT MÓN</button>
           </div>
         </div>
-        <div class="col-s-6 col-m-3 col-x-4">
+        <div class="col-s-4 col-m-3 col-t-6">
           <div class="product-item">
             <img
               class="product-photo"
@@ -255,7 +257,7 @@
             <button class="dat-mon">ĐẶT MÓN</button>
           </div>
         </div>
-        <div class="col-s-6 col-m-3 col-x-4">
+        <div class="col-s-4 col-m-3 col-t-6">
           <div class="product-item">
             <img
               class="product-photo"
@@ -267,7 +269,7 @@
             <button class="dat-mon">ĐẶT MÓN</button>
           </div>
         </div>
-        <div class="col-s-6 col-m-3 col-x-4">
+        <div class="col-s-4 col-m-3 col-t-6">
           <div class="product-item">
             <img
               class="product-photo"
@@ -279,7 +281,7 @@
             <button class="dat-mon">ĐẶT MÓN</button>
           </div>
         </div>
-        <div class="col-s-6 col-m-3 col-x-4">
+        <div class="col-s-4 col-m-3 col-t-6">
           <div class="product-item">
             <img
               class="product-photo"
@@ -295,7 +297,7 @@
             <button class="dat-mon">ĐẶT MÓN</button>
           </div>
         </div>
-        <div class="col-s-6 col-m-3 col-x-4">
+        <div class="col-s-4 col-m-3 col-t-6">
           <div class="product-item">
             <img class="product-photo" src="Images/banhga.jpg" alt="Bánh gà" />
             <div class="product-name">Bánh gà</div>
@@ -343,7 +345,7 @@
       <div class="widget-area">
         <div class="container">
           <div class="widget-row row">
-            <div class="widget-row-col-1 col-t-12 col-s-3 col-m-4">
+            <div class="widget-row-col-1 col-t-12 col-s-12 col-m-4">
               <h3 class="widget-title">Về chúng tôi</h3>
               <div class="widget-row-col-content">
                 <p>
@@ -443,7 +445,7 @@
                 </li>
               </ul>
             </div>
-            <div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
+            <div class="widget-row-col-1 col-t-12 col-s-5 col-m-3">
               <h3 class="widget-title">Liên hệ</h3>
               <div class="contact">
                 <div class="contact-item">
@@ -508,27 +510,7 @@
   </div>
     <script src="js/cart.js"></script>
     <script src="admin/script.js"></script>
-    <!-- Gọi loadProducts khi DOM sẵn sàng -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Kiểm tra trạng thái đăng nhập
-        const userSection = document.getElementById("user-section");
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (user) {
-          userSection.innerHTML = `
-                  <i class="fa-solid fa-user"></i>
-                  <span style="margin-left: 8px; color: #333;">${user.name}</span>
-                  <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
-              `;
-        }
-      });
-
-      function logout() {
-        localStorage.removeItem("user");
-        localStorage.removeItem("loginTime");
-        localStorage.removeItem("remember");
-        window.location.reload();
-      }
-    </script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

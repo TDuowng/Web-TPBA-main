@@ -52,11 +52,17 @@
 /*Responsive*/
 @media (max-width: 768px) {
   .about-us h2 {
-    font-size: 16pt;
+    font-size: 13pt;
+    text-align: center;
+  }
+
+  .about-us {
+    width: 100%;
+    padding: 0;
   }
 
   .about-us h3 {
-    font-size: 14pt;
+    font-size: 12pt;
   }
 
   .about-us p {
@@ -73,11 +79,28 @@
   }
 
   .container-product-cart {
-    width: 100%;
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .about-us h2 {
+    text-align: left;
   }
 }
 
 /* Policy Page Styles */
+@media screen and (min-width: 1024px) {
+  .container-product-cart {
+    width: 80%;
+    margin: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
 .container-policy h2 {
   display: flex;
   justify-content: center;
@@ -86,8 +109,23 @@
 
 #p1 {
   margin-top: 10px;
-  display: flex;
-  justify-content: center;
+  font-size: 10pt;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container-policy {
+  width: 100%;
+  margin: auto;
+  height: auto;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  #p1 {
+    font-size: 8pt;
+  }
 }
 
 /* Contact Us Page Styles */
@@ -98,6 +136,12 @@
   background-color: #fff;
   padding: 20px;
   box-sizing: border-box;
+}
+
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .contact-form {
@@ -120,7 +164,8 @@
 
 .contact-form input[type="text"],
 .contact-form input[type="email"],
-.contact-form input[type="tel"] {
+.contact-form input[type="tel"],
+.contact-form textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -131,11 +176,6 @@
 }
 
 .contact-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 12pt;
-  color: #333;
   height: 100px;
 }
 
@@ -168,50 +208,6 @@
   margin-top: 50px;
 }
 
-/* Responsive: Tablet (768px - 1024px) */
-@media (max-width: 1024px) {
-  .contact-section {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .contact-form,
-  .contact-info {
-    width: 100%;
-    margin: 0;
-  }
-
-  .contact-form h2 {
-    font-size: 20px;
-  }
-
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form button {
-    font-size: 12px;
-  }
-
-  .contact-form button {
-    width: 120px;
-  }
-
-  .contact1 {
-    margin-top: 20px;
-  }
-
-  .contact-item-icon i {
-    font-size: 18px;
-  }
-
-  .contact-content span {
-    font-size: 14px;
-  }
-
-  .map iframe {
-    height: 350px;
-  }
-}
-
 /* Responsive: Mobile (<768px) */
 @media (max-width: 767px) {
   .contact-form {
@@ -235,12 +231,7 @@
 
   .contact-form textarea {
     height: 80px;
-  }
-
-  .contact-form button {
-    font-size: 10px;
-    width: 100px;
-    padding: 8px;
+    font-size: 16px;
   }
 
   .contact-item-icon i {
@@ -253,6 +244,53 @@
 
   .map iframe {
     height: 250px;
+  }
+
+  .container-contact {
+    width: 100%;
+    margin: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .contacts {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .container-contact {
+    width: 95%;
+    margin: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .contact-form button {
+    padding: 10px 15px;
+    background-color: #b5292f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 12pt;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    height: 40px;
+    width: 150px;
+  }
+
+  .contacts {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
   }
 }
 
@@ -309,6 +347,21 @@
   margin: 0;
 }
 
+/* Đảm bảo bố cục tổng thể */
+.info-allproduct {
+  flex: 1;
+}
+
+.container-allproduct {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-allproduct {
+  width: 300px;
+  margin-right: 20px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .news-item {
@@ -331,10 +384,8 @@
   .news-desc {
     font-size: 13px;
   }
-}
 
-@media (max-width: 480px) {
-  .news-item {
+  news-item {
     padding: 10px;
   }
 
@@ -350,24 +401,7 @@
   .news-desc {
     font-size: 12px;
   }
-}
 
-/* Đảm bảo bố cục tổng thể */
-.info-allproduct {
-  flex: 1;
-}
-
-.container-allproduct {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.menu-allproduct {
-  width: 300px;
-  margin-right: 20px;
-}
-
-@media (max-width: 768px) {
   .menu-allproduct {
     width: 100%;
     margin-right: 0;

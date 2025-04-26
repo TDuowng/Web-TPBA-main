@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="icon" type="image/png" href="Images/icon.png">
+    <link rel="stylesheet" type="text/css" href="css/detail.css">
     <link rel="stylesheet" type="text/css" href="css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/slideshow.js"></script>
-    <title>Gà rán - Tào phớ Bình An</title>
+    <title>Sản phẩm - Tào phớ Bình An</title>
+    <style>
+
+    </style>
 </head>
+<!-- Popup giỏ hàng -->
 <div id="popup-cart" class="popup-cart">
     <div class="button-x">
         <span onclick="closePopupCart()"><i class="fa-solid fa-xmark"></i></span>
@@ -106,7 +110,7 @@
                             <li><a href="#">Khuyến mãi</a></li>
                         </ul>
                     </div>
-                                    
+                                     
                     <div class="header-middle-left">
                         <div class="header-logo">
                             <a href="index.html">
@@ -162,202 +166,136 @@
                 </div>
             </div>
             
-            <div id="container">
-                <div id="wrapper">
-                    <div class="content-row">
-                        <div class="top-section" >
-                            <div class="sidebar">
-                                <h1>DANH MỤC</h1>
-                                <ul>
-                                    <li><a href="#">Sữa chua</a></li>
-                                    <li><a href="#">Trà sữa</a></li>
-                                    <li><a href="#">Nước trái cây</a></li>
-                                    <li><a href="#taopho">Tào phớ</a></li>
-                                    <li><a href="garan.html#garan">Gà rán</a></li>
-                                    <li><a href="#">Tokbokki</a></li>
-                                    <li><a href="#">Ăn vặt</a></li>
-                                    <li><a href="#">Trái cây</a></li>
-                                    <li><a href="#">Chè Sài Gòn</a></li>
-                                    <li><a id="end" href="#">Xem thêm >></a></li>
-                                </ul>
+            <div class="nemchuaran-container">
+                <div class="breadcrumb">
+                    <a id="index" href="index.html">Trang chủ</a> <i class="fa-solid fa-angle-right"></i>
+                    <a id="best-seller" href="index.html#best-seller">Món ăn bán chạy</a> <i class="fa-solid fa-angle-right"></i>
+                    <span style="color: #B5292f; font-weight: bold; font-size: 12pt;">Gà viên sốt phô mai</span>
+                </div>
+                <div class="nemchuaran-product">
+                    <div class="nemchuaran-product-img">
+                        <img id="main-product-img" src="Images/gavien.jpg" alt="Gà viên sốt phô mai">
+                        <div class="nemchuaran-product-slider">
+                            <i class="fas fa-chevron-left" onclick="prevSlide()"></i>
+                            <div class="slider-wrapper">
+                                <img src="Images/gavien.jpg" alt="Gà 1" >
+                                <img src="Images/gavien1.jpg" alt="Gà 2" >
+                                <img src="Images/gavien2.webp" alt="Gà 3">
+                                <img src="Images/gavien3.webp" alt="Gà 4" >
+                                <img src="Images/gavien4.jpg" alt="Gà 5" >
                             </div>
-                            <div id="slideshow">
-                                <div class="slideshow-container">
-                                    <img id="slide" src="Images/slide_1.png" />
-                                    <button id="back-btn" class="nav-btn back-btn" onclick="back()"></button>
-                                    <button id="next-btn" class="nav-btn next-btn" onclick="next()"></button>
+                            <i class="fas fa-chevron-right" onclick="nextSlide()"></i>
+                        </div>
+                        <div class="nemchuaran-buttons">
+                            <button class="open-desc">Mô tả</button>
+                            <button class="add-info">Thông tin</button>
+                        </div>
+                    </div>
+                    <div class="nemchuaran-product-info">
+                        <div class="nemchuaran-product-name">
+                            <h3>Gà viên sốt phô mai</h3>
+                            <div class="nemchuaran-product-status">
+                                <span class="status-label">Trạng thái:</span>
+                                <div class="status">
+                                    <i class="fa-solid fa-check"></i> Còn hàng
                                 </div>
                             </div>
                         </div>
-                    </div>
-                        <script src="js/slideshow.js"></script>
-                        <script>
-                            setInterval(next, 3000);
-                        </script>
+                        <div class="nemchuaran-price">45,000 đ</div>
+                        <div class="nemchuaran-sell" style="border-bottom: 1px solid #ccc; padding-bottom: 17px;">
+                            Giá gốc: <span class="price-original">60,000 đ</span>
+                            <span id="sell">(-10%)</span>
+                        </div>
+                        <div class="nutrition-info" style="border-bottom: 1px solid #ccc; padding-bottom: 17px;">
+                            <strong>Giá trị dinh dưỡng:</strong> Gà viên sốt phô mai giàu đạm từ thịt gà, cung cấp năng lượng và hỗ trợ phát triển cơ bắp. Phô mai bổ sung canxi, vitamin A và D, tốt cho xương và mắt. Món ăn này vừa dinh dưỡng vừa hấp dẫn khẩu vị, thích hợp cho cả trẻ em và người cần bổ sung năng lượng.
+                        </div>
+                        <div class="nemchuaran-quantity">
+                            <span>Số lượng:</span>
+                            <button class="nemchuaran-add" id="decrease-btn"><i class="fa-solid fa-minus"></i></button>
+                            <input type="text" id="quantity" value="1" readonly style="width: 40px; text-align: center; border: 1px solid #ccc; padding: 5px;">
+                            <button class="nemchuaran-add" id="increase-btn"><i class="fa-solid fa-plus"></i></button>
+                            <button class="buy-now" data-img="Images/gavien.jpg" data-name="Gà viên sốt phô mai" data-price="45000">Đặt món ngay</button>
+                        </div>
+                        <div class="share">
+                            Chia sẻ:
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-google-plus"></i>
+                        </div>
                     </div>
                 </div>
-                <div class="features">
-                    <div class="feature-item">
-                        <i class="fas fa-shipping-fast"></i>
-                        <div class="text-content">
-                            <h3>GIAO HÀNG NHANH</h3>
-                            <span>Cho tất cả đơn hàng</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-heart"></i>
-                        <div class="text-content">
-                            <h3>SẢN PHẨM AN TOÀN</h3>
-                            <span>Cam kết chất lượng</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-headset"></i>
-                        <div class="text-content">
-                            <h3>HỖ TRỢ 24/7</h3>
-                            <span>Tất cả ngày trong tuần</span>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <div class="text-content">
-                            <h3>HOÀN LẠI TIỀN</h3>
-                            <span>Nếu không hài lòng</span>
-                        </div>
-                    </div>
+                <div class="nutrifood">
+                    <span>Giá trị dinh dưỡng: Gà viên sốt phô mai là món ăn hấp dẫn kết hợp giữa đạm động vật từ thịt gà và chất béo cùng canxi từ phô mai. Thịt gà cung cấp protein chất lượng cao, giúp xây dựng cơ bắp và tăng cường sức đề kháng, trong khi phô mai bổ sung canxi, vitamin A và D tốt cho xương và thị lực. Món ăn này không chỉ thơm béo, giàu năng lượng mà còn phù hợp với trẻ em, người cần bổ sung dinh dưỡng hoặc đang trong giai đoạn phát triển..</span>
                 </div>
             </div>
-            <div class="category">
-                <section id="garan">
-                    <h1>GÀ RÁN</h1>
-                </section>
-            </div>
-            <div class="product">
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/gaviensottuongtoi.webp" alt="Gà viên sốt tương tỏi" />
-                        <div class="product-name">Gà viên sốt tương tỏi</div>
-                        <div class="product-price">40.000 đ</div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
+            <div class="related-products">
+                <div class="related-title">
+                    <span>SẢN PHẨM LIÊN QUAN</span>
                 </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/changasatac.jpg" alt="Chân gà sả tắc" />
-                        <div class="product-name">Chân gà sả tắc</div>
-                        <div class="product-price">45.000 đ</div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/gavienrangmuoi.jpg" alt="Gà viên rang muối" />
-                        <div class="product-name">Gà viên rang muối</div>
-                        <div class="product-price">35.000 đ</div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/duigasotphomai.jpg" alt="Đùi gà sốt phô mai" />
-                        <div class="product-name">Đùi gà sốt phô mai</div>
-                        <div class="product-price">40.000 đ</div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <a href="gaviensotphomai.html"><img class="product-photo" src="Images/gavien.jpg" alt="Gà viên sốt phô mai" /></a>
-                        <div class="product-name"><a href="gaviensotphomai.html">Gà viên sốt phô mai</a></div>
-                        <div class="discount-label">Giảm 20%</div>
-                        <div class="price-container">
-                            <div class="product-price">40.000 đ</div>
-                            <div class="product-sale">50.500 đ</div>
+                <div class="product-slider">
+                    <button class="slider-btn related-prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-track">
+                      <div class="product-slide">
+                        
+                        <div class="product-item">
+                            <img class="product-photo" src="Images/xucxichran.jpg" alt="Xúc xích rán" loading="lazy"/>
+                            <div class="product-name">Xúc xích rán</div>
+                            <div class="discount-label">Giảm 20%</div>
+                            <div class="price-container">
+                                <div class="product-price">10.000 đ</div>
+                                <div class="product-sale">12.500 đ</div>
+                            </div>
+                            <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
- 
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/duigasotcay.jpg" alt="Đùi gà sốt cay" />
-                        <div class="product-name">Đùi gà sốt cay</div>
-                        <div class="discount-label">Giảm 10%</div>
-                        <div class="price-container">
+                        <div class="product-item">
+                            <img class="product-photo" src="Images/kimbapchien.jpg" alt="Kimbap chiên" loading="lazy"/>
+                            <div class="product-name">Kimbap chiên</div>
                             <div class="product-price">35.000 đ</div>
-                            <div class="product-sale">42.500 đ</div>
+                            <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/duigachien.png" alt="Đùi gà chiên" />
-                        <div class="product-name">Đùi gà chiên</div>
-                        <div class="discount-label">Giảm 20%</div>
-                        <div class="price-container">
-                            <div class="product-price">40.000 đ</div>
-                            <div class="product-sale">50.500 đ</div>
+                        <div class="product-item">
+                            <img class="product-photo" src="Images/banhga.jpg" alt="Bánh gà" />
+                            <div class="product-name">Bánh gà</div>
+                            <div class="product-price">25.000 đ</div>
+                            <button class="dat-mon">ĐẶT MÓN</button>
                         </div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
+                            <div class="product-item">
+                                <img class="product-photo" src="Images/gaxienque.jpg" alt="Gà xiên que" />
+                                <div class="product-name">Gà xiên que</div>
+                                <div class="product-price">30.000 đ</div>
+                                <button class="dat-mon">ĐẶT MÓN</button>
+                            </div>
+                            <div class="product-item">
+                                <img class="product-photo" src="Images/canhgasotcay.jpg" alt="Cánh gà sốt me" />
+                                <div class="product-name">Cánh gà sốt cay</div>
+                                <div class="discount-label">Giảm 8%</div>
+                                <div class="price-container">
+                                    <div class="product-price">35.000 đ</div>
+                                    <div class="product-sale">48.500 đ</div>
+                                </div>
+                                <button class="dat-mon">ĐẶT MÓN</button>
+                            </div>
+                            <div class="product-item">
+                                <img class="product-photo" src="Images/canhgachien.jpg" alt="Cánh gà chiên" />
+                                <div class="product-name">Cánh gà chiên</div>
+                                <div class="product-price">35.000 đ</div>
+                                <button class="dat-mon">ĐẶT MÓN</button>
+                            </div>
+                            <div class="product-item">
+                                <img class="product-photo" src="Images/canhgachiennuocmam.jpg" alt="Cánh gà chiên nước mắm" />
+                                <div class="product-name">Cánh gà chiên nước mắm</div>
+                                <div class="discount-label">Giảm 5%</div>
+                                <div class="price-container">
+                                    <div class="product-price">30.000 đ</div>
+                                    <div class="product-sale">45.500 đ</div>
+                                </div>
+                                <button class="dat-mon">ĐẶT MÓN</button>
+                            </div>
+                      </div>
                     </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/canhgachiennuocmam.jpg" alt="Cánh gà chiên nước mắm" />
-                        <div class="product-name">Cánh gà chiên nước mắm</div>
-                        <div class="discount-label">Giảm 5%</div>
-                        <div class="price-container">
-                            <div class="product-price">30.000 đ</div>
-                            <div class="product-sale">45.500 đ</div>
-                        </div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/canhgasotcay.jpg" alt="Cánh gà sốt me" />
-                        <div class="product-name">Cánh gà sốt cay</div>
-                        <div class="discount-label">Giảm 8%</div>
-                        <div class="price-container">
-                            <div class="product-price">35.000 đ</div>
-                            <div class="product-sale">48.500 đ</div>
-                        </div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/canhgachien.jpg" alt="Cánh gà chiên" />
-                        <div class="product-name">Cánh gà chiên</div>
-                        <div class="product-price">35.000 đ</div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/banhga.jpg" alt="Bánh gà" />
-                        <div class="product-name">Bánh gà</div>
-                        <div class="product-price">25.000 đ</div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
-                </div>
-                <div class="col-s-4 col-m-3 col-t-6">
-                    <div class="product-item">
-                        <img class="product-photo" src="Images/gaxienque.jpg" alt="Gà xiên que" />
-                        <div class="product-name">Gà xiên que</div>
-                        <div class="product-price">30.000 đ</div>
-                        <button class="dat-mon">ĐẶT MÓN</button>
-                    </div>
+                    <button class="slider-btn related-next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
-            
-        </div>
-        <div class="pagination">
-            <ul class="pagination-list">
-                <li class="pagination-item active">1</li>
-                <li class="pagination-item "> <a href="garan_2.html#garan">2</a></li>
-            </ul>
         </div>
         <footer class="footer">
             <div class="container">
@@ -388,9 +326,12 @@
                         <div class="widget-row-col-1 col-t-12 col-s-12 col-m-4">
                             <h3 class="widget-title">Về chúng tôi</h3>
                             <div class="widget-row-col-content">
-                                <p>Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ hương vị truyền thống
-                                    qua từng bát tào phớ mịn màng, thanh mát. Gần một thập kỷ trôi qua, chúng tôi vẫn
-                                    không ngừng cải thiện chất lượng và phục vụ, để mỗi lần bạn ghé quán là một lần cảm
+                                <p>Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ hương vị truyền
+                                    thống
+                                    qua từng bát tào phớ mịn màng, thanh mát. Gần một thập kỷ trôi qua, chúng tôi
+                                    vẫn
+                                    không ngừng cải thiện chất lượng và phục vụ, để mỗi lần bạn ghé quán là một lần
+                                    cảm
                                     thấy thân quen và an lòng.</p>
                             </div>
                             <div class="widget-social">
@@ -429,7 +370,8 @@
                                             hệ</span></a>
                                 </li>
                                 <li class="widget-contact-item">
-                                    <a href="news.html"><i class="fa-solid fa-arrow-right"></i><span>Tin tức</span></a>
+                                    <a href="news.html"><i class="fa-solid fa-arrow-right"></i><span>Tin
+                                            tức</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -501,6 +443,7 @@
                 </div>
             </div>
         </div>
+        </div>
         <div class="contact-buttons">
             <a href="tel:0353689832" class="contact-btn phone-btn" title="Gọi ngay cho chúng tôi">
                 <i class="fas fa-phone-alt"></i>
@@ -519,9 +462,9 @@
             </a>
         </div>
         <script src="js/cart.js"></script>
-        <script src="admin/script.js"></script>
+        <script src="js/detail.js"></script>
+        <script src="js/nemchua.js"></script>
         <script src="js/main.js"></script>
-        
 </body>
 
 </html>

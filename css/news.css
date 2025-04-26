@@ -1,5 +1,4 @@
 /* News Page Styles */
-/* Định dạng danh sách bài viết */
 .news-list {
   margin-top: 20px;
 }
@@ -7,7 +6,7 @@
 .container-news {
   width: 80%;
   margin: auto;
-  height: 1200px;
+  height: auto;
   background-color: #fff;
   padding: 20px;
   box-sizing: border-box;
@@ -75,50 +74,6 @@
   margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .news-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .news-item img {
-    width: 100%;
-    height: 150px;
-    margin-right: 0;
-    margin-bottom: 15px;
-  }
-
-  .news-content h3 {
-    font-size: 16px;
-  }
-
-  .news-date,
-  .news-desc {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  .news-item {
-    padding: 10px;
-  }
-
-  .news-item img {
-    height: 120px;
-  }
-
-  .news-content h3 {
-    font-size: 14px;
-  }
-
-  .news-date,
-  .news-desc {
-    font-size: 12px;
-  }
-}
-
-/* Đảm bảo bố cục tổng thể */
 .info-allproduct {
   flex: 1;
 }
@@ -129,17 +84,12 @@
 }
 
 .menu-allproduct {
-  width: 300px;
+  width: 24%;
   margin-right: 20px;
 }
 
-/* ============ Responsive Mobile chỉnh theo yêu cầu ============ */
-@media (max-width: 575.98px) {
-  .menu-allproduct,
-  .featured-products {
-    display: none !important;
-  }
-
+/* ============ Responsive Mobile ============ */
+@media (max-width: 768px) {
   .container-news {
     width: 100% !important;
     padding: 10px;
@@ -165,9 +115,38 @@
   .news-desc {
     font-size: 13px;
   }
+
+  .tin-tuc {
+    flex-direction: column-reverse;
+  }
+  .menu-allproduct,
+  .filter,
+  .featured-products {
+    display: block !important;
+  }
+  .menu-allproduct {
+    width: 100% !important;
+    margin-right: 20px;
+  }
 }
-@media (max-width: 575.98px) {
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .container-news {
-    padding-bottom: 60px; /* Đủ để tránh đè footer */
+    width: 95%;
+    margin: auto;
+    height: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .menu-allproduct {
+    display: block !important;
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .tin-tuc {
+    flex-direction: column-reverse;
   }
 }

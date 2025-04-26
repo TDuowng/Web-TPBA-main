@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/register.css" />
     <link rel="icon" type="image/png" href="Images/icon.png" />
     <link
       rel="stylesheet"
@@ -13,7 +13,10 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <title>Đăng nhập - Tào phớ Bình An</title>
   </head>
-
+  <!--Back to top -->
+  <button id="back-to-top" title="Lên đầu trang">
+    <i class="fas fa-arrow-up"></i>
+  </button>
   <body>
     <div class="header">
       <div class="top">
@@ -48,6 +51,58 @@
       </div>
       <div class="header-middle">
         <div class="container">
+          <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <!-- Mobile menu -->
+          <div id="mobile-menu" class="mobile-menu">
+            <!-- Đăng nhập / Đăng ký -->
+            <div class="mobile-auth" id="mobile-auth">
+              <i class="fa fa-user"></i>
+              <span id="mobile-user-area" style="margin-left: 8px">
+                <a href="login.html">Đăng nhập</a> hoặc
+                <a href="signup.html">Đăng ký</a>
+              </span>
+              <span class="close-btn"><i class="fa fa-times"></i></span>
+            </div>
+
+            <!-- Tìm kiếm -->
+            <form id="mobile-search-form" class="mobile-search">
+              <input
+                type="text"
+                id="mobile-search-input"
+                placeholder="Tìm sản phẩm..."
+              />
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+
+            <!-- Menu chính -->
+            <ul class="mobile-nav">
+              <li><a href="index.html">Trang chủ</a></li>
+              <li class="has-sub">
+                <a href="allproduct.html"
+                  >Sản phẩm <span class="arrow">›</span></a
+                >
+                <ul class="submenu">
+                  <li class="has-sub">
+                    <a href="#taopho">Tào phớ <span class="arrow">›</span></a>
+                    <ul class="submenu">
+                      <li><a href="#taopho">Tào phớ caramen</a></li>
+                      <li><a href="#taopho">Tào phớ thạch</a></li>
+                      <li><a href="#taopho">Tào phớ trân châu</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Trà sữa</a></li>
+                  <li><a href="garan.html#garan">Gà rán</a></li>
+                  <li><a href="#">Ăn vặt</a></li>
+                </ul>
+              </li>
+              <li><a href="news.html">Tin tức</a></li>
+              <li><a href="aboutme.html">Giới thiệu</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+              <li><a href="#">Khuyến mãi</a></li>
+            </ul>
+          </div>
           <div class="header-middle-left">
             <div class="header-logo">
               <a href="index.html">
@@ -79,8 +134,10 @@
               </li>
               <li class="header-middle-right-item">
                 <div class="cart-icon-menu">
-                  <i class="fa-solid fa-basket-shopping"></i>
-                  <span class="count-product-cart">0</span>
+                  <a href="cart.html" class="cart-icon">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="count-product-cart">0</span>
+                  </a>
                 </div>
                 <span> &nbsp;&nbsp; <a href="cart.html"> Giỏ hàng</a></span>
               </li>
@@ -88,6 +145,7 @@
           </div>
         </div>
       </div>
+      <div class="line-up"></div>
       <div id="menu">
         <div class="main-menu">
           <ul>
@@ -97,7 +155,7 @@
               >
             </li>
             <li>
-              <a href="allproduct.html">Sản phẩm »</a>
+              <a href="allproduct.html">Sản phẩm </a>
               <ul>
                 <li><a href="#">Tào phớ ngon tuyệt đỉnh</a></li>
                 <li><a href="#">Gà rán hảo hạng</a></li>
@@ -113,21 +171,7 @@
           </ul>
         </div>
       </div>
-      <script>
-        $(document).ready(function () {
-          // Hover vào mục cha
-          $("#menu ul > li").hover(
-            function () {
-              // Khi hover: tìm thẻ ul con và trượt xuống
-              $(this).find("ul").stop(true, true).slideDown(300);
-            },
-            function () {
-              // Khi rời chuột: trượt lên
-              $(this).find("ul").stop(true, true).slideUp(300);
-            }
-          );
-        });
-      </script>
+
       <div id="container">
         <div id="wrapper">
           <div id="login-box">
@@ -205,7 +249,7 @@
         <div class="widget-area">
           <div class="container">
             <div class="widget-row row">
-              <div class="widget-row-col-1 col-t-12 col-s-3 col-m-4">
+              <div class="widget-row-col-1 col-t-12 col-s-12 col-m-4">
                 <h3 class="widget-title">Về chúng tôi</h3>
                 <div class="widget-row-col-content">
                   <p>
@@ -305,7 +349,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
+              <div class="widget-row-col-1 col-t-12 col-s-5 col-m-3">
                 <h3 class="widget-title">Liên hệ</h3>
                 <div class="contact">
                   <div class="contact-item">
@@ -395,33 +439,6 @@
     <script src="js/cart.js"></script>
     <script src="js/login.js"></script>
     <script src="admin/script.js"></script>
-    <!-- Gọi loadProducts khi DOM sẵn sàng -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        loadProducts("product-list");
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        loadProducts("product-list");
-        // Kiểm tra trạng thái đăng nhập
-        const userSection = document.getElementById("user-section");
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (user) {
-          userSection.innerHTML = `
-                  <i class="fa-solid fa-user"></i>
-                  <span style="margin-left: 8px; color: #333;">${user.name}</span>
-                  <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
-              `;
-        }
-      });
-
-      function logout() {
-        localStorage.removeItem("user");
-        localStorage.removeItem("loginTime");
-        localStorage.removeItem("remember");
-        window.location.reload();
-      }
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>

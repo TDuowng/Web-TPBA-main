@@ -1,568 +1,869 @@
 <!DOCTYPE html>
 <html lang="vi">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/signup.css">
-	<link rel="icon" type="image/png" href="Images/icon.png">
-	<link rel="stylesheet" type="text/css" href="css/deliver.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-	<script src="js/jquery-3.7.1.min.js"></script>
-	<title>Thông tin giao hàng - Tào phớ Bình An</title>
-</head>
-
-<body>
-		<div class="header">
-			<div class="top">
-				<div class="top-content ">
-					<div class="top-left">
-						<span id="hotline"> Hotline: <b> 0353 689 832 </b> </span>
-						<span id="address">Địa chỉ: Số 34 Đường Phạm Sĩ Ái, Cầu Tình, Phố Nối, Mỹ Hào, Hưng Yên</span>
-					</div>
-					<div class="top-right ">
-						<ul class="top-list">
-							<li><a href="aboutme.html"><i class="fas fa-info-circle"></i><span>Giới thiệu</span></a>
-							</li>
-							<li><a href="aboutme.html"><i class="fas fa-store"></i><span>Cửa hàng</span></a></li>
-							<li><a href="policy.html"><i class="fas fa-file-lines"></i><span>Chính sách</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="header-middle">
-				<div class="container">
-					<div class="header-middle-left">
-						<div class="header-logo">
-							<a href="index.html">
-								<img src="Images/logo.png" alt="" class="header-logo-img">
-							</a>
-						</div>
-					</div>
-					<div class="header-middle-center">
-						<form action="" class="form-search">
-							<span class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></span>
-							<input type="text" class="form-search-input" placeholder="Tìm kiếm món ăn...">
-							<button class="filter-btn"><i class="fa-solid fa-filter"></i><span>Lọc</span></button>
-						</form>
-					</div>
-					<div class="header-middle-right">
-                        <ul class="header-middle-right-list">
-                            <li class="header-middle-right-item" id="user-section">
-                                <i class="fa-solid fa-user"></i>
-                                <a class="text-login" href="login.html">Đăng nhập/ </a><a class="text-login" href="signup.html">Đăng ký</a>
-                            </li>
-                            <li class="header-middle-right-item">
-                                <div class="cart-icon-menu">
-                                    <i class="fa-solid fa-basket-shopping"></i>
-                                    <span class="count-product-cart">0</span>
-                                </div>
-                                <span> &nbsp;&nbsp; <a href="cart.html"> Giỏ hàng</a></span>
-                            </li>
-                        </ul>
-                    </div>
-				</div>
-			</div>
-			<div id="menu">
-				<div class="main-menu">
-					<ul>
-						<li><a href="index.html" style="background-color: orange;">Trang chủ</a></li>
-						<li><a href="allproduct.html">Sản phẩm »</a>
-                            <ul>
-                                <li><a href="#">Tào phớ ngon tuyệt đỉnh</a></li>
-                                <li><a href="#">Gà rán hảo hạng</a></li>
-                                <li><a href="#">Sữa chua thơm mát lành</a></li>
-                                <li><a href="#">Nước ngọt như nụ cười em</a></li>
-                                <li><a href="#">Tàu hũ truyền thống</a></li>
-                            </ul>
-                        </li>
-						<li><a href="aboutme.html">Giới thiệu</a></li>
-						<li><a href="news.html">Tin tức</a></li>
-						<li><a href="contact.html">Liên hệ</a></li>
-						<li><a href="#">Khuyến mại</a></li>
-					</ul>
-				</div>
-			</div>
-			<script>
-				$(document).ready(function () {
-					// Hover vào mục cha
-					$('#menu ul > li').hover(
-						function () {
-							// Khi hover: tìm thẻ ul con và trượt xuống
-							$(this).find('ul').stop(true, true).slideDown(300);
-						},
-						function () {
-							// Khi rời chuột: trượt lên
-							$(this).find('ul').stop(true, true).slideUp(300);
-						}
-					);
-				});
-			</script>
-			<div class="deliver-container">
-				<div class="deliver-wrapper">
-					<form id="form-deliver" action="">
-						<h2>THÔNG TIN GIAO HÀNG</h2>
-						<hr />
-						<table class="deliver-table">
-							<tr>
-								<td class="data-row"><i style="font-size: 23px;" class="fa-solid fa-user"></i></td>
-								<td class="data-input"><input type="text" placeholder="Nhập họ và tên" required
-										minlength="5" />
-							</tr>
-							<tr>
-								<td class="data-row"><i style="font-size: 22px;" class="fa-solid fa-envelope"></i></td>
-								<td class="data-input"><input type="email" placeholder="example@gmail.com" /> </td>
-							</tr>
-							<tr>
-								<td class="data-row"><i class="fa-solid fa-phone"></i></td>
-								<td class="data-input"><input type="tel" pattern="^\d{10}$" minlength="3" maxlength="10"
-										placeholder="0000 000 000" required /></td>
-							</tr>
-							<tr>
-								<td class="data-row"><span><i style="font-size: 23px;"
-											class="fa-solid fa-earth-americas"></i></td>
-								<td class="data-input">
-									<select required>
-										<option value="afghanistan">Afghanistan</option>
-										<option value="france">France</option>
-										<option value="germany">Germany</option>
-										<option value="greece">Greece</option>
-										<option value="japan">Japan</option>
-										<option value="jordan">Jordan</option>
-										<option value="kazakhstan">Kazakhstan</option>
-										<option value="kenya">Kenya</option>
-										<option value="kiribati">Kiribati</option>
-										<option value="korea_north">North Korea</option>
-										<option value="korea_south">South Korea</option>
-										<option value="kosovo">Kosovo</option>
-										<option value="kuwait">Kuwait</option>
-										<option value="kyrgyzstan">Kyrgyzstan</option>
-										<option value="laos">Laos</option>
-										<option value="liberia">Liberia</option>
-										<option value="libya">Libya</option>
-										<option value="liechtenstein">Liechtenstein</option>
-										<option value="lithuania">Lithuania</option>
-										<option value="luxembourg">Luxembourg</option>
-										<option value="madagascar">Madagascar</option>
-										<option value="malaysia">Malaysia</option>
-										<option value="maldives">Maldives</option>
-										<option value="mali">Mali</option>
-										<option value="malta">Malta</option>
-										<option value="marshall_islands">Marshall Islands</option>
-										<option value="mauritania">Mauritania</option>
-										<option value="mauritius">Mauritius</option>
-										<option value="mexico">Mexico</option>
-										<option value="micronesia">Micronesia</option>
-										<option value="moldova">Moldova</option>
-										<option value="monaco">Monaco</option>
-										<option value="mongolia">Mongolia</option>
-										<option value="montenegro">Montenegro</option>
-										<option value="morocco">Morocco</option>
-										<option value="mozambique">Mozambique</option>
-										<option value="myanmar">Myanmar</option>
-										<option value="namibia">Namibia</option>
-										<option value="nauru">Nauru</option>
-										<option value="nepal">Nepal</option>
-										<option value="netherlands">Netherlands</option>
-										<option value="new_zealand">New Zealand</option>
-										<option value="nicaragua">Nicaragua</option>
-										<option value="niger">Niger</option>
-										<option value="nigeria">Nigeria</option>
-										<option value="north_macedonia">North Macedonia</option>
-										<option value="norway">Norway</option>
-										<option value="oman">Oman</option>
-										<option value="pakistan">Pakistan</option>
-										<option value="palau">Palau</option>
-										<option value="panama">Panama</option>
-										<option value="papua_new_guinea">Papua New Guinea</option>
-										<option value="paraguay">Paraguay</option>
-										<option value="peru">Peru</option>
-										<option value="philippines">Philippines</option>
-										<option value="poland">Poland</option>
-										<option value="portugal">Portugal</option>
-										<option value="qatar">Qatar</option>
-										<option value="romania">Romania</option>
-										<option value="russia">Russia</option>
-										<option value="rwanda">Rwanda</option>
-										<option value="saint_kitts_and_nevis">Saint Kitts and Nevis</option>
-										<option value="Việt Nam" selected>Việt Nam</option>
-										<option value="zimbabwe">Zimbabwe</option>
-									</select> <br />
-								</td>
-							</tr>
-							<tr>
-								<td class="data-row"><span><i class="fa-solid fa-city"></i></td>
-								<td class="data-input">
-									<select name="province" required>
-										<option value="ha_noi">Hà Nội</option>
-										<option value="ho_chi_minh">Hồ Chí Minh</option>
-										<option value="ha_giang">Hà Giang</option>
-										<option value="ca_mau">Cà Mau</option>
-										<option value="can_tho">Cần Thơ</option>
-										<option value="an_giang">An Giang</option>
-										<option value="bac_can">Bắc Cạn</option>
-										<option value="bac_giang">Bắc Giang</option>
-										<option value="bac_lieu">Bạc Liêu</option>
-										<option value="bac_ninh">Bắc Ninh</option>
-										<option value="ben_tre">Bến Tre</option>
-										<option value="binh_duong">Bình Dương</option>
-										<option value="binh_phuoc">Bình Phước</option>
-										<option value="binh_thuan">Bình Thuận</option>
-										<option value="cao_bang">Cao Bằng</option>
-										<option value="dak_lak">Đắk Lắk</option>
-										<option value="dak_nong">Đắk Nông</option>
-										<option value="dien_bien">Điện Biên</option>
-										<option value="dong_nai">Đồng Nai</option>
-										<option value="dong_thap">Đồng Tháp</option>
-										<option value="gia_lai">Gia Lai</option>
-										<option value="ha_tinh">Hà Tĩnh</option>
-										<option value="hau_giang">Hậu Giang</option>
-										<option value="hoa_binh">Hòa Bình</option>
-										<option value="hue">Huế</option>
-										<option value="Hưng Yên" selected>Hưng Yên</option>
-										<option value="kien_giang">Kiên Giang</option>
-										<option value="kon_tum">Kon Tum</option>
-										<option value="lai_chau">Lai Châu</option>
-										<option value="long_an">Long An</option>
-										<option value="lai">Lào Cai</option>
-										<option value="quang_ninh">Quảng Ninh</option>
-										<option value="quang_tri">Quảng Trị</option>
-										<option value="quang_binh">Quảng Bình</option>
-										<option value="quang_ngai">Quảng Ngãi</option>
-										<option value="quang_nam">Quảng Nam</option>
-										<option value="soc_trang">Sóc Trăng</option>
-										<option value="tien_giang">Tiền Giang</option>
-										<option value="tuyen_quang">Tuyên Quang</option>
-										<option value="thanh_hoa">Thanh Hóa</option>
-										<option value="thua_thien_hue">Thừa Thiên Huế</option>
-										<option value="vung_tau">Vũng Tàu</option>
-										<option value="vinh_phuc">Vĩnh Phúc</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td class="data-row"><i style="font-size: 19px;" class="fa-solid fa-warehouse"></i></td>
-								<td class="data-input">
-									<select name="district" required>
-										<option value="hung_yen">Thành phố Hưng Yên</option>
-										<option value="van_giang">Huyện Văn Giang</option>
-										<option value="van_lam">Huyện Văn Lâm</option>
-										<option value="an_thi">Huyện Ân Thi</option>
-										<option value="khoai_chau">Huyện Khoái Châu</option>
-										<option value="kim_dong">Huyện Kim Động</option>
-										<option value="tien_lu">Huyện Tiên Lữ</option>
-										<option value="phu_cuu">Huyện Phù Cừ</option>
-										<option value="Thị xã Mỹ Hào" selected>Thị xã Mỹ Hào</option>
-										<option value="yen_my">Huyện Yên Mỹ</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td class="data-row"><i style="font-size: 22px;" class="fa-solid fa-house"></i></td>
-								<td class="data-input">
-									<select name="ward" required>
-										<option value="minh_duc">Phường Minh Đức</option>
-										<option value="phan_dinh_phung">Phường Phan Đình Phùng</option>
-										<option value="nhat_tan">Phường Nhất Tân</option>
-										<option value="dinh_du">Xã Dĩnh Dụ</option>
-										<option value="hoa_phong">Xã Hòa Phong</option>
-										<option value="cat_loi">Xã Cát Lợi</option>
-										<option value="bat_trang">Xã Bát Tràng</option>
-										<option value="xuan_du">Xã Xuân Dục</option>
-										<option value="xuan_quang">Xã Xuân Quang</option>
-										<option value="Cẩm Xá" selected>Xã Cẩm Xá</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td class="data-row"><i class="fa-solid fa-map-location-dot"></i></td>
-								<td class="data-input"><input type="text" placeholder="Số nhà/Đường/Khu phố" required />
-								</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td class="accept-policy">
-									<input id="accept" type="checkbox" />
-									<label id="accept-lable" for="accept">Tôi đồng ý với <a href="policy.html">chính
-											sách vận
-											chuyển của cửa hàng.</a></label>
-								</td>
-							</tr>
-						</table>
-					</form>
-				</div>
-				<div class="deliver-wrapper">
-					<h2>PHƯƠNG THỨC THANH TOÁN</h2>
-					<hr />
-					<div class="payment-method">
-						<div class="payment-method-item">
-							<input type="radio" name="payment" id="cod" checked />
-							<img src="Images/zalopay.png" alt="VNpay"><span> Ví Zalopay</span>
-						</div>
-						<div class="payment-method-item">
-							<input type="radio" name="payment" id="cod" checked />
-							<img src="Images/vnpay.png" alt="VNpay"><span>VNPAY</span>
-						</div>
-						<div class="payment-method-item">
-							<input type="radio" name="payment" id="cod" checked />
-							<img src="Images/shopeepay.png" alt="VNpay"><span>Ví Shopeepay</span>
-						</div>
-						<div class="payment-method-item">
-							<input type="radio" name="payment" id="cod" checked />
-							<img src="Images/momo.png" alt="VNpay"><span>Ví Momo</span>
-						</div>
-						<div class="payment-method-item">
-							<input type="radio" name="payment" id="cod" checked />
-							<img src="Images/atm.png" alt="VNpay"><span>ATM / Internet Banking</span>
-						</div>
-						<div class="payment-method-item">
-							<input type="radio" name="payment" id="cod" checked />
-							<img src="Images/cash.png" alt="VNpay"><span>Thanh toán bằng tiền mặt khi nhận hàng</span>
-						</div>
-					</div>
-				</div>
-				<div class="deliver-wrapper">
-					<h2>MÃ KHUYẾN MÃI</h2>
-					<hr />
-					<div class="discount">
-						<span>Mã KM/Mã quà tặng</span>
-						<div class="discount-input">
-							<input type="text" placeholder="Nhập mã khuyến mãi" />
-							<button class="btn-discount">Áp dụng</button>
-						</div>
-						<span><a href="#">Chọn mã khuyến mãi</a></span>
-					</div>
-					<div class="remind">
-						<p>Có thể áp dụng đồng thời nhiều mã &nbsp;<i class="fa-solid fa-circle-info"></i></p>
-					</div>
-
-				</div>
-				<div class="deliver-wrapper">
-					<h2>KIỂM TRA LẠI ĐƠN HÀNG</h2>
-					<hr />
-					<div id="order-review-content">
-						<!-- Render đơn hàng tại đây -->
-					</div>
-					<div class="checkout">
-						<table class="summary-table">
-							<tr>
-								<td>Tổng tiền hàng</td>
-								<td id="order-subtotal" class="text-right">0₫</td>
-							</tr>
-							<tr>
-								<td>Phí vận chuyển</td>
-								<td id="shipping-fee" class="text-right">30.000₫</td>
-							</tr>
-							<tr class="total-row">
-								<td><strong>Tổng thanh toán</strong></td>
-								<td id="order-total" class="text-right"><strong>0₫</strong></td>
-							</tr>
-						</table>
-						<div class="checkout-note">
-							<span class="terms-text">
-								Khi nhấn 'Đặt hàng', bạn xác nhận rằng bạn đồng ý với <span> <a href="policy.html"> &nbsp;Điều khoản </a></span> của chúng tôi.
-							</span>
-							<a href="checkout.html"><button class="checkout-btn">Đặt hàng</button></a>
-						</div>
-					</div>
-				</div>
-				<footer class="footer">
-					<div class="container">
-						<div class="footer-top">
-							<div class="footer-top-content">
-								<div class="footer-top-img">
-									<img src="Images/logo_clean.png" alt="Logo Tào Phớ Bình An">
-								</div>
-								<div class="footer-top-subbox">
-									<div class="footer-top-subs">
-										<h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
-										<p class="footer-top-subs-text">Nhận thông tin mới nhất từ chúng tôi</p>
-									</div>
-									<form class="form-ground">
-										<input type="email" class="form-ground-input" placeholder="Nhập email của bạn">
-										<button class="form-ground-btn">
-											<span>ĐĂNG KÝ</span>
-											<i class="fa-solid fa-arrow-right"></i>
-										</button>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="widget-area">
-						<div class="container">
-							<div class="widget-row row">
-								<div class="widget-row-col-1 col-t-12 col-s-3 col-m-4   ">
-									<h3 class="widget-title">Về chúng tôi</h3>
-									<div class="widget-row-col-content">
-										<p>Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu giữ hương vị truyền
-											thống
-											qua từng bát tào phớ mịn màng, thanh mát. Gần một thập kỷ trôi qua, chúng
-											tôi vẫn
-											không ngừng cải thiện chất lượng và phục vụ, để mỗi lần bạn ghé quán là một
-											lần cảm
-											thấy thân quen và an lòng.</p>
-									</div>
-									<div class="widget-social">
-										<div class="widget-social-item">
-											<a href="https://www.facebook.com/profile.php?id=100054205777778"
-												target="_blank"><i class="fab fa-facebook-f"></i></a>
-										</div>
-										<div class="widget-social-item">
-											<a href="#"><i class="fab fa-twitter"></i></a>
-										</div>
-										<div class="widget-social-item">
-											<a href="#"><i class="fab fa-linkedin-in"></i></a>
-										</div>
-										<div class="widget-social-item">
-											<a href="#"><i class="fab fa-whatsapp"></i></a>
-										</div>
-									</div>
-								</div>
-								<div class="widget-row-col col-t-6 col-s-3 col-m-2">
-									<h3 class="widget-title">Liên kết</h3>
-									<ul class="widget-contact">
-										<li class="widget-contact-item">
-											<a href="aboutme.html"><i class="fa-solid fa-arrow-right"></i><span>Về chúng
-													tôi</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Thực
-													đơn</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="policy.html"><i class="fa-solid fa-arrow-right"></i><span>Điều
-													khoản</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="contact.html"><i class="fa-solid fa-arrow-right"></i><span>Liên
-													hệ</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="news.html"><i class="fa-solid fa-arrow-right"></i><span>Tin
-													tức</span></a>
-										</li>
-									</ul>
-								</div>
-								<div class="widget-row-col col-t-6 col-s-3 col-m-2">
-									<h3 class="widget-title">Thực đơn</h3>
-									<ul class="widget-contact">
-										<li class="widget-contact-item">
-											<a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Tào
-													phớ</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Trà
-													sữa</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Gà
-													rán</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Tàu
-													hũ</span></a>
-										</li>
-										<li class="widget-contact-item">
-											<a href="allproduct.html"><i class="fa-solid fa-arrow-right"></i><span>Nước
-													ngọt</span></a>
-										</li>
-									</ul>
-								</div>
-								<div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
-									<h3 class="widget-title">Liên hệ</h3>
-									<div class="contact">
-										<div class="contact-item">
-											<div class="contact-item-icon">
-												<i class="fa-solid fa-phone"></i>
-											</div>
-											<div class="contact-content contact-item-phone">
-												<span>0353 689 832</span><br>
-												<span>0123 456 789</span>
-											</div>
-										</div>
-										<div class="contact-item">
-											<div class="contact-item-icon">
-												<i class="fa-solid fa-envelope"></i>
-											</div>
-											<div class="contact-content conatct-item-email">
-												<span>vuduong271105@gmail.com</span><br>
-												<span>binhanpho@gmail.com</span>
-											</div>
-										</div>
-										<div class="contact-item">
-											<div class="contact-item-icon">
-												<i class="fa-solid fa-location-dot"></i>
-											</div>
-											<div class="contact-content conatct-item-email">
-												<span>Số 34 Đường Phạm Sĩ Ái, Cầu Tình,</span><br>
-												<span>Phố Nối, Mỹ Hào, Hưng Yên</span>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</footer>
-				<div class="copyright-wrap">
-					<div class="container">
-						<div class="copyright-content">
-							<p><a href="admin/admin.html">Copyright 2025 Tào Phớ Bình An</a>. All Rights Reserved.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="contact-buttons">
-            <a href="tel:0353689832" class="contact-btn phone-btn" title="Gọi ngay cho chúng tôi">
-                <i class="fas fa-phone-alt"></i>
-            </a>
-            <a href="https://zalo.me/0353689832" target="_blank" class="contact-btn zalo-btn" title="Chat qua Zalo">
-                <i class="fas fa-comment"></i>
-            </a>
-            <a href="https://m.me/your_messenger_id" target="_blank" class="contact-btn messenger-btn" title="Chat qua Messenger">
-                <i class="fab fa-facebook-messenger"></i>
-            </a>
-            <a href="mailto:vuduong271105@gmail.com" class="contact-btn email-btn" title="Gửi email cho chúng tôi">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://maps.app.goo.gl/MSuyVQCZupQukg3q8" target="_blank" class="contact-btn map-btn" title="Xem địa chỉ trên bản đồ">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/signup.css" />
+    <link rel="icon" type="image/png" href="Images/icon.png" />
+    <link rel="stylesheet" type="text/css" href="css/deliver.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <title>Thông tin giao hàng - Tào phớ Bình An</title>
+  </head>
+  <!-- Back to top -->
+  <button id="back-to-top" title="Lên đầu trang">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <body>
+    <div class="header">
+      <div class="top">
+        <div class="top-content">
+          <div class="top-left">
+            <span id="hotline"> Hotline: <b> 0353 689 832 </b> </span>
+            <span id="address"
+              >Địa chỉ: Số 34 Đường Phạm Sĩ Ái, Cầu Tình, Phố Nối, Mỹ Hào, Hưng
+              Yên</span
+            >
+          </div>
+          <div class="top-right">
+            <ul class="top-list">
+              <li>
+                <a href="aboutme.html"
+                  ><i class="fas fa-info-circle"></i><span>Giới thiệu</span></a
+                >
+              </li>
+              <li>
+                <a href="aboutme.html"
+                  ><i class="fas fa-store"></i><span>Cửa hàng</span></a
+                >
+              </li>
+              <li>
+                <a href="policy.html"
+                  ><i class="fas fa-file-lines"></i><span>Chính sách</span></a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-		<script src="js/cart.js"></script>
-		<script src="admin/script.js"></script>
-		<!-- Gọi loadProducts khi DOM sẵn sàng -->
-		<script>
-			document.addEventListener('DOMContentLoaded', () => {
-				loadProducts('product-list');
-			});
-		</script>
-		<script>
-            document.addEventListener('DOMContentLoaded', () => {
-                loadProducts('product-list');
-                // Kiểm tra trạng thái đăng nhập
-                const userSection = document.getElementById('user-section');
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (user) {
-                    userSection.innerHTML = `
-                        <i class="fa-solid fa-user"></i>
-                        <span style="margin-left: 8px; color: #333;">${user.name}</span>
-                        <a href="#" onclick="logout()" style="margin-left: 8px; color: #b5292f; text-decoration: none;">Đăng xuất</a>
-                    `;
-                }
-            });
+      </div>
+      <div class="header-middle">
+        <div class="container">
+          <div class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <!-- Mobile menu -->
+          <div id="mobile-menu" class="mobile-menu">
+            <!-- Đăng nhập / Đăng ký -->
+            <div class="mobile-auth" id="mobile-auth">
+              <i class="fa fa-user"></i>
+              <span id="mobile-user-area" style="margin-left: 8px">
+                <a href="login.html">Đăng nhập</a> hoặc
+                <a href="signup.html">Đăng ký</a>
+              </span>
+              <span class="close-btn"><i class="fa fa-times"></i></span>
+            </div>
+            <!-- Tìm kiếm -->
+            <form id="mobile-search-form" class="mobile-search">
+              <input
+                type="text"
+                id="mobile-search-input"
+                placeholder="Tìm sản phẩm..."
+              />
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <!-- Menu chính -->
+            <ul class="mobile-nav">
+              <li><a href="index.html">Trang chủ</a></li>
+              <li class="has-sub">
+                <a href="allproduct.html"
+                  >Sản phẩm <span class="arrow">›</span></a
+                >
+                <ul class="submenu">
+                  <li class="has-sub">
+                    <a href="#taopho">Tào phớ <span class="arrow">›</span></a>
+                    <ul class="submenu">
+                      <li><a href="#taopho">Tào phớ caramen</a></li>
+                      <li><a href="#taopho">Tào phớ thạch</a></li>
+                      <li><a href="#taopho">Tào phớ trân châu</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Trà sữa</a></li>
+                  <li><a href="garan.html#garan">Gà rán</a></li>
+                  <li><a href="#">Ăn vặt</a></li>
+                </ul>
+              </li>
+              <li><a href="news.html">Tin tức</a></li>
+              <li><a href="aboutme.html">Giới thiệu</a></li>
+              <li><a href="contact.html">Liên hệ</a></li>
+              <li><a href="#">Khuyến mãi</a></li>
+            </ul>
+          </div>
+          <div class="header-middle-left">
+            <div class="header-logo">
+              <a href="index.html">
+                <img src="Images/logo.png" alt="" class="header-logo-img" />
+              </a>
+            </div>
+          </div>
+          <div class="header-middle-center">
+            <form action="" class="form-search">
+              <span class="search-btn"
+                ><i class="fa-solid fa-magnifying-glass"></i
+              ></span>
+              <input
+                type="text"
+                class="form-search-input"
+                placeholder="Tìm kiếm món ăn..."
+              />
+              <button class="filter-btn">
+                <i class="fa-solid fa-filter"></i><span>Lọc</span>
+              </button>
+            </form>
+          </div>
+          <div class="header-middle-right">
+            <ul class="header-middle-right-list">
+              <li class="header-middle-right-item" id="user-section">
+                <i class="fa-solid fa-user"></i>
+                <a class="text-login" href="login.html">Đăng nhập/ </a
+                ><a class="text-login" href="signup.html">Đăng ký</a>
+              </li>
+              <li class="header-middle-right-item">
+                <div class="cart-icon-menu">
+                  <a href="cart.html" class="cart-icon">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="count-product-cart">0</span>
+                  </a>
+                </div>
+                <span> &nbsp; <a href="cart.html"> Giỏ hàng</a></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="line-up"></div>
+      <div id="menu">
+        <div class="main-menu">
+          <ul>
+            <li>
+              <a href="index.html" style="background-color: orange"
+                >Trang chủ</a
+              >
+            </li>
+            <li>
+              <a href="allproduct.html">Sản phẩm </a>
+              <ul>
+                <li><a href="#">Tào phớ ngon tuyệt đỉnh</a></li>
+                <li><a href="#">Gà rán hảo hạng</a></li>
+                <li><a href="#">Sữa chua thơm mát lành</a></li>
+                <li><a href="#">Nước ngọt như nụ cười em</a></li>
+                <li><a href="#">Tàu hũ truyền thống</a></li>
+              </ul>
+            </li>
+            <li><a href="aboutme.html">Giới thiệu</a></li>
+            <li><a href="news.html">Tin tức</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="#">Khuyến mại</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="deliver-container">
+        <div class="deliver-wrapper">
+          <form id="form-deliver" action="">
+            <h2>THÔNG TIN GIAO HÀNG</h2>
+            <hr />
+            <table class="deliver-table">
+              <tr>
+                <td class="data-row">
+                  <i style="font-size: 23px" class="fa-solid fa-user"></i>
+                </td>
+                <td class="data-input">
+                  <input
+                    type="text"
+                    id="full-name"
+                    placeholder="Nhập họ và tên"
+                    required
+                    minlength="5"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="data-row">
+                  <i style="font-size: 22px" class="fa-solid fa-envelope"></i>
+                </td>
+                <td class="data-input">
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="data-row"><i class="fa-solid fa-phone"></i></td>
+                <td class="data-input">
+                  <input
+                    type="tel"
+                    id="phone"
+                    pattern="^\d{10}$"
+                    minlength="3"
+                    maxlength="10"
+                    placeholder="0000 000 000"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="data-row">
+                  <span
+                    ><i
+                      style="font-size: 23px"
+                      class="fa-solid fa-earth-americas"
+                    ></i
+                  ></span>
+                </td>
+                <td class="data-input">
+                  <select id="country" required>
+                    <option value="afghanistan">Afghanistan</option>
+                    <option value="france">France</option>
+                    <option value="germany">Germany</option>
+                    <option value="greece">Greece</option>
+                    <option value="japan">Japan</option>
+                    <option value="jordan">Jordan</option>
+                    <option value="kazakhstan">Kazakhstan</option>
+                    <option value="kenya">Kenya</option>
+                    <option value="kiribati">Kiribati</option>
+                    <option value="korea_north">North Korea</option>
+                    <option value="korea_south">South Korea</option>
+                    <option value="kosovo">Kosovo</option>
+                    <option value="kuwait">Kuwait</option>
+                    <option value="kyrgyzstan">Kyrgyzstan</option>
+                    <option value="laos">Laos</option>
+                    <option value="liberia">Liberia</option>
+                    <option value="libya">Libya</option>
+                    <option value="liechtenstein">Liechtenstein</option>
+                    <option value="lithuania">Lithuania</option>
+                    <option value="luxembourg">Luxembourg</option>
+                    <option value="madagascar">Madagascar</option>
+                    <option value="malaysia">Malaysia</option>
+                    <option value="maldives">Maldives</option>
+                    <option value="mali">Mali</option>
+                    <option value="malta">Malta</option>
+                    <option value="marshall_islands">Marshall Islands</option>
+                    <option value="mauritania">Mauritania</option>
+                    <option value="mauritius">Mauritius</option>
+                    <option value="mexico">Mexico</option>
+                    <option value="micronesia">Micronesia</option>
+                    <option value="moldova">Moldova</option>
+                    <option value="monaco">Monaco</option>
+                    <option value="mongolia">Mongolia</option>
+                    <option value="montenegro">Montenegro</option>
+                    <option value="morocco">Morocco</option>
+                    <option value="mozambique">Mozambique</option>
+                    <option value="myanmar">Myanmar</option>
+                    <option value="namibia">Namibia</option>
+                    <option value="nauru">Nauru</option>
+                    <option value="nepal">Nepal</option>
+                    <option value="netherlands">Netherlands</option>
+                    <option value="new_zealand">New Zealand</option>
+                    <option value="nicaragua">Nicaragua</option>
+                    <option value="niger">Niger</option>
+                    <option value="nigeria">Nigeria</option>
+                    <option value="north_macedonia">North Macedonia</option>
+                    <option value="norway">Norway</option>
+                    <option value="oman">Oman</option>
+                    <option value="pakistan">Pakistan</option>
+                    <option value="palau">Palau</option>
+                    <option value="panama">Panama</option>
+                    <option value="papua_new_guinea">Papua New Guinea</option>
+                    <option value="paraguay">Paraguay</option>
+                    <option value="peru">Peru</option>
+                    <option value="philippines">Philippines</option>
+                    <option value="poland">Poland</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="qatar">Qatar</option>
+                    <option value="romania">Romania</option>
+                    <option value="russia">Russia</option>
+                    <option value="rwanda">Rwanda</option>
+                    <option value="saint_kitts_and_nevis">
+                      Saint Kitts and Nevis
+                    </option>
+                    <option value="Việt Nam" selected>Việt Nam</option>
+                    <option value="zimbabwe">Zimbabwe</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="data-row">
+                  <span><i class="fa-solid fa-city"></i></span>
+                </td>
+                <td class="data-input">
+                  <select id="province" name="province" required>
+                    <option value="ha_noi">Hà Nội</option>
+                    <option value="ho_chi_minh">Hồ Chí Minh</option>
+                    <option value="ha_giang">Hà Giang</option>
+                    <option value="ca_mau">Cà Mau</option>
+                    <option value="can_tho">Cần Thơ</option>
+                    <option value="an_giang">An Giang</option>
+                    <option value="bac_can">Bắc Cạn</option>
+                    <option value="bac_giang">Bắc Giang</option>
+                    <option value="bac_lieu">Bạc Liêu</option>
+                    <option value="bac_ninh">Bắc Ninh</option>
+                    <option value="ben_tre">Bến Tre</option>
+                    <option value="binh_duong">Bình Dương</option>
+                    <option value="binh_phuoc">Bình Phước</option>
+                    <option value="binh_thuan">Bình Thuận</option>
+                    <option value="cao_bang">Cao Bằng</option>
+                    <option value="dak_lak">Đắk Lắk</option>
+                    <option value="dak_nong">Đắk Nông</option>
+                    <option value="dien_bien">Điện Biên</option>
+                    <option value="dong_nai">Đồng Nai</option>
+                    <option value="dong_thap">Đồng Tháp</option>
+                    <option value="gia_lai">Gia Lai</option>
+                    <option value="ha_tinh">Hà Tĩnh</option>
+                    <option value="hau_giang">Hậu Giang</option>
+                    <option value="hoa_binh">Hòa Bình</option>
+                    <option value="hue">Huế</option>
+                    <option value="Hưng Yên" selected>Hưng Yên</option>
+                    <option value="kien_giang">Kiên Giang</option>
+                    <option value="kon_tum">Kon Tum</option>
+                    <option value="lai_chau">Lai Châu</option>
+                    <option value="long_an">Long An</option>
+                    <option value="lai">Lào Cai</option>
+                    <option value="quang_ninh">Quảng Ninh</option>
+                    <option value="quang_tri">Quảng Trị</option>
+                    <option value="quang_binh">Quảng Bình</option>
+                    <option value="quang_ngai">Quảng Ngãi</option>
+                    <option value="quang_nam">Quảng Nam</option>
+                    <option value="soc_trang">Sóc Trăng</option>
+                    <option value="tien_giang">Tiền Giang</option>
+                    <option value="tuyen_quang">Tuyên Quang</option>
+                    <option value="thanh_hoa">Thanh Hóa</option>
+                    <option value="thua_thien_hue">Thừa Thiên Huế</option>
+                    <option value="vung_tau">Vũng Tàu</option>
+                    <option value="vinh_phuc">Vĩnh Phúc</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="data-row">
+                  <i style="font-size: 19px" class="fa-solid fa-warehouse"></i>
+                </td>
+                <td class="data-input">
+                  <select id="district" name="district" required>
+                    <option value="hung_yen">Thành phố Hưng Yên</option>
+                    <option value="van_giang">Huyện Văn Giang</option>
+                    <option value="van_lam">Huyện Văn Lâm</option>
+                    <option value="an_thi">Huyện Ân Thi</option>
+                    <option value="khoai_chau">Huyện Khoái Châu</option>
+                    <option value="kim_dong">Huyện Kim Động</option>
+                    <option value="tien_lu">Huyện Tiên Lữ</option>
+                    <option value="phu_cuu">Huyện Phù Cừ</option>
+                    <option value="Thị xã Mỹ Hào" selected>
+                      Thị xã Mỹ Hào
+                    </option>
+                    <option value="yen_my">Huyện Yên Mỹ</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="data-row">
+                  <i style="font-size: 22px" class="fa-solid fa-house"></i>
+                </td>
+                <td class="data-input">
+                  <select id="ward" name="ward" required>
+                    <option value="minh_duc">Phường Minh Đức</option>
+                    <option value="phan_dinh_phung">
+                      Phường Phan Đình Phùng
+                    </option>
+                    <option value="nhat_tan">Phường Nhất Tân</option>
+                    <option value="dinh_du">Xã Dĩnh Dụ</option>
+                    <option value="hoa_phong">Xã Hòa Phong</option>
+                    <option value="cat_loi">Xã Cát Lợi</option>
+                    <option value="bat_trang">Xã Bát Tràng</option>
+                    <option value="xuan_du">Xã Xuân Dục</option>
+                    <option value="xuan_quang">Xã Xuân Quang</option>
+                    <option value="Cẩm Xá" selected>Xã Cẩm Xá</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td class="data-row">
+                  <i class="fa-solid fa-map-location-dot"></i>
+                </td>
+                <td class="data-input">
+                  <input
+                    type="text"
+                    id="address-detail"
+                    placeholder="Số nhà/Đường/Khu phố"
+                    required
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="accept-policy">
+                  <input id="accept" type="checkbox" />
+                  <label id="accept-lable" for="accept"
+                    >Tôi đồng ý với
+                    <a href="policy.html"
+                      >chính sách vận chuyển của cửa hàng.</a
+                    ></label
+                  >
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <div class="deliver-wrapper">
+          <h2>PHƯƠNG THỨC THANH TOÁN</h2>
+          <hr />
+          <div class="payment-method">
+            <div class="payment-method-item">
+              <input type="radio" name="payment" id="cod" checked />
+              <img src="Images/zalopay.png" alt="VNpay" /><span>
+                Ví Zalopay</span
+              >
+            </div>
+            <div class="payment-method-item">
+              <input type="radio" name="payment" id="cod" checked />
+              <img src="Images/vnpay.png" alt="VNpay" /><span>VNPAY</span>
+            </div>
+            <div class="payment-method-item">
+              <input type="radio" name="payment" id="cod" checked />
+              <img src="Images/shopeepay.png" alt="VNpay" /><span
+                >Ví Shopeepay</span
+              >
+            </div>
+            <div class="payment-method-item">
+              <input type="radio" name="payment" id="cod" checked />
+              <img src="Images/momo.png" alt="VNpay" /><span>Ví Momo</span>
+            </div>
+            <div class="payment-method-item">
+              <input type="radio" name="payment" id="cod" checked />
+              <img src="Images/atm.png" alt="VNpay" /><span
+                >ATM / Internet Banking</span
+              >
+            </div>
+            <div class="payment-method-item">
+              <input type="radio" name="payment" id="cod" checked />
+              <img src="Images/cash.png" alt="VNpay" /><span
+                >Thanh toán bằng tiền mặt khi nhận hàng</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="deliver-wrapper">
+          <h2>MÃ KHUYẾN MÃI</h2>
+          <hr />
+          <div class="discount">
+            <span>Mã KM/Mã quà tặng</span>
+            <div class="discount-input">
+              <input type="text" placeholder="Nhập mã khuyến mãi" />
+              <button class="btn-discount">Áp dụng</button>
+            </div>
+          </div>
+          <div class="remind">
+            <p>
+              Có thể áp dụng đồng thời nhiều mã &nbsp;<i
+                class="fa-solid fa-circle-info"
+              ></i>
+            </p>
+          </div>
+        </div>
+        <div class="deliver-wrapper">
+          <h2>KIỂM TRA LẠI ĐƠN HÀNG</h2>
+          <hr />
+          <div id="order-review-content">
+            <!-- Render đơn hàng tại đây -->
+          </div>
+          <div class="checkout">
+            <table class="summary-table">
+              <tr>
+                <td>Tổng tiền hàng</td>
+                <td id="order-subtotal" class="text-right">0₫</td>
+              </tr>
+              <tr>
+                <td>Phí vận chuyển</td>
+                <td id="shipping-fee" class="text-right">30.000₫</td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Tổng thanh toán</strong></td>
+                <td id="order-total" class="text-right"><strong>0₫</strong></td>
+              </tr>
+            </table>
+            <div class="checkout-note">
+              <span class="terms-text">
+                Khi nhấn 'Đặt hàng', bạn xác nhận rằng bạn đồng ý với
+                <span><a href="policy.html">Điều khoản</a></span> của chúng tôi.
+              </span>
+              <button class="checkout-btn" onclick="handleCheckout()">
+                Đặt hàng
+              </button>
+            </div>
+          </div>
+        </div>
+        <footer class="footer">
+          <div class="container">
+            <div class="footer-top">
+              <div class="footer-top-content">
+                <div class="footer-top-img">
+                  <img src="Images/logo_clean.png" alt="Logo Tào Phớ Bình An" />
+                </div>
+                <div class="footer-top-subbox">
+                  <div class="footer-top-subs">
+                    <h2 class="footer-top-subs-title">Đăng ký nhận tin</h2>
+                    <p class="footer-top-subs-text">
+                      Nhận thông tin mới nhất từ chúng tôi
+                    </p>
+                  </div>
+                  <form class="form-ground">
+                    <input
+                      type="email"
+                      class="form-ground-input"
+                      placeholder="Nhập email của bạn"
+                    />
+                    <button class="form-ground-btn">
+                      <span>ĐĂNG KÝ</span>
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget-area">
+            <div class="container">
+              <div class="widget-row row">
+                <div class="widget-row-col-1 col-t-12 col-s-3 col-m-4">
+                  <h3 class="widget-title">Về chúng tôi</h3>
+                  <div class="widget-row-col-content">
+                    <p>
+                      Thành lập từ năm 2015, Tào phớ Bình An tự hào là nơi lưu
+                      giữ hương vị truyền thống qua từng bát tào phớ mịn màng,
+                      thanh mát. Gần một thập kỷ trôi qua, chúng tôi vẫn không
+                      ngừng cải thiện chất lượng và phục vụ, để mỗi lần bạn ghé
+                      quán là một lần cảm thấy thân quen và an lòng.
+                    </p>
+                  </div>
+                  <div class="widget-social">
+                    <div class="widget-social-item">
+                      <a
+                        href="https://www.facebook.com/profile.php?id=100054205777778"
+                        target="_blank"
+                        ><i class="fab fa-facebook-f"></i
+                      ></a>
+                    </div>
+                    <div class="widget-social-item">
+                      <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <div class="widget-social-item">
+                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="widget-social-item">
+                      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                  </div>
+                </div>
+                <div class="widget-row-col col-t-6 col-s-3 col-m-2">
+                  <h3 class="widget-title">Liên kết</h3>
+                  <ul class="widget-contact">
+                    <li class="widget-contact-item">
+                      <a href="aboutme.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Về chúng tôi</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="allproduct.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Thực đơn</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="policy.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Điều khoản</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="contact.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Liên hệ</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="news.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Tin tức</span></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="widget-row-col col-t-6 col-s-3 col-m-2">
+                  <h3 class="widget-title">Thực đơn</h3>
+                  <ul class="widget-contact">
+                    <li class="widget-contact-item">
+                      <a href="allproduct.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Tào phớ</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="allproduct.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Trà sữa</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="allproduct.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Gà rán</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="allproduct.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Tàu hũ</span></a
+                      >
+                    </li>
+                    <li class="widget-contact-item">
+                      <a href="allproduct.html"
+                        ><i class="fa-solid fa-arrow-right"></i
+                        ><span>Nước ngọt</span></a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="widget-row-col-1 col-t-12 col-s-3 col-m-3">
+                  <h3 class="widget-title">Liên hệ</h3>
+                  <div class="contact">
+                    <div class="contact-item">
+                      <div class="contact-item-icon">
+                        <i class="fa-solid fa-phone"></i>
+                      </div>
+                      <div class="contact-content contact-item-phone">
+                        <span>0353 689 832</span><br />
+                        <span>0123 456 789</span>
+                      </div>
+                    </div>
+                    <div class="contact-item">
+                      <div class="contact-item-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                      </div>
+                      <div class="contact-content conatct-item-email">
+                        <span>vuduong271105@gmail.com</span><br />
+                        <span>binhanpho@gmail.com</span>
+                      </div>
+                    </div>
+                    <div class="contact-item">
+                      <div class="contact-item-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                      </div>
+                      <div class="contact-content conatct-item-email">
+                        <span>Số 34 Đường Phạm Sĩ Ái, Cầu Tình,</span><br />
+                        <span>Phố Nối, Mỹ Hào, Hưng Yên</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+        <div class="copyright-wrap">
+          <div class="container">
+            <div class="copyright-content">
+              <p>
+                <a href="admin/admin.html">Copyright 2025 Tào Phớ Bình An</a>.
+                All Rights Reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-buttons">
+      <a
+        href="tel:0353689832"
+        class="contact-btn phone-btn"
+        title="Gọi ngay cho chúng tôi"
+      >
+        <i class="fas fa-phone-alt"></i>
+      </a>
+      <a
+        href="https://zalo.me/0353689832"
+        target="_blank"
+        class="contact-btn zalo-btn"
+        title="Chat qua Zalo"
+      >
+        <i class="fas fa-comment"></i>
+      </a>
+      <a
+        href="https://m.me/your_messenger_id"
+        target="_blank"
+        class="contact-btn messenger-btn"
+        title="Chat qua Messenger"
+      >
+        <i class="fab fa-facebook-messenger"></i>
+      </a>
+      <a
+        href="mailto:vuduong271105@gmail.com"
+        class="contact-btn email-btn"
+        title="Gửi email cho chúng tôi"
+      >
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a
+        href="https://maps.app.goo.gl/MSuyVQCZupQukg3q8"
+        target="_blank"
+        class="contact-btn map-btn"
+        title="Xem địa chỉ trên bản đồ"
+      >
+        <i class="fas fa-map-marker-alt"></i>
+      </a>
+    </div>
+    <script src="js/cart.js"></script>
+    <script src="admin/script.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      function handleCheckout() {
+        const user = JSON.parse(localStorage.getItem("user")) || {};
+        const cartKey = user.username ? `cart_${user.username}` : "cart_guest";
+        const form = document.getElementById("form-deliver");
+        const acceptPolicy = document.getElementById("accept");
+        const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 
-            function logout() {
-                localStorage.removeItem('user');
-                localStorage.removeItem('loginTime');
-                localStorage.removeItem('remember');
-                window.location.reload();
-            }
-        </script>
+        // Kiểm tra giỏ hàng trống
+        if (cart.length === 0) {
+          document
+            .getElementById("order-review-content")
+            .scrollIntoView({ behavior: "smooth" });
+          return;
+        }
 
-</body>
+        // Kiểm tra các trường bắt buộc và focus vào ô đầu tiên bị thiếu
+        const nameInput = form.querySelector(
+          'input[placeholder="Nhập họ và tên"]'
+        );
+        if (!nameInput.value.trim()) {
+          nameInput.focus();
+          return;
+        }
 
+        const emailInput = form.querySelector('input[type="email"]');
+        if (!emailInput.value.trim()) {
+          emailInput.focus();
+          return;
+        }
+
+        const phoneInput = form.querySelector('input[type="tel"]');
+        if (
+          !phoneInput.value.trim() ||
+          !/^\d{10}$/.test(phoneInput.value.trim())
+        ) {
+          phoneInput.focus();
+          return;
+        }
+
+        const countrySelect = form.querySelector("select#country");
+        if (!countrySelect.value) {
+          countrySelect.focus();
+          return;
+        }
+
+        const provinceSelect = form.querySelector('select[name="province"]');
+        if (!provinceSelect.value) {
+          provinceSelect.focus();
+          return;
+        }
+
+        const districtSelect = form.querySelector('select[name="district"]');
+        if (!districtSelect.value) {
+          districtSelect.focus();
+          return;
+        }
+
+        const wardSelect = form.querySelector('select[name="ward"]');
+        if (!wardSelect.value) {
+          wardSelect.focus();
+          return;
+        }
+
+        const addressDetailInput = form.querySelector(
+          'input[placeholder="Số nhà/Đường/Khu phố"]'
+        );
+        if (!addressDetailInput.value.trim()) {
+          addressDetailInput.focus();
+          return;
+        }
+
+        if (!acceptPolicy.checked) {
+          acceptPolicy.focus();
+          return;
+        }
+
+        const paymentMethodInput = document.querySelector(
+          'input[name="payment"]:checked'
+        );
+        if (!paymentMethodInput) {
+          document.getElementById("cod").focus();
+          return;
+        }
+
+        // Nếu tất cả thông tin hợp lệ, tiến hành lưu đơn hàng
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const country = countrySelect.value;
+        const province = provinceSelect.value;
+        const district = districtSelect.value;
+        const ward = wardSelect.value;
+        const addressDetail = addressDetailInput.value.trim();
+
+        const paymentMethod =
+          paymentMethodInput.nextElementSibling.querySelector(
+            "span"
+          ).textContent;
+
+        const subtotal = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+        const shippingFee = 30000;
+        const total = subtotal + shippingFee;
+
+        const orderId = "TPBA" + Math.floor(100000 + Math.random() * 900000);
+        const orderDate = new Date().toLocaleDateString("vi-VN", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        });
+
+        const order = {
+          orderId,
+          orderDate,
+          customer: {
+            name,
+            email,
+            phone,
+            address: `${addressDetail}, ${ward}, ${district}, ${province}, ${country}`,
+          },
+          cart,
+          subtotal,
+          shippingFee,
+          total,
+          paymentMethod,
+        };
+
+        localStorage.setItem("lastOrder", JSON.stringify(order));
+        localStorage.removeItem(cartKey); // Xóa giỏ hàng sau khi đặt hàng
+        window.location.href = "checkout.html";
+      }
+    </script>
+  </body>
 </html>
