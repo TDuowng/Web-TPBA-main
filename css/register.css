@@ -37,6 +37,13 @@
   outline: none;
 }
 
+.username-error:not([hidden]) {
+  display: block;
+  color: red;
+  font-size: 13px;
+  margin: -14px 0 20px;
+}
+
 .options {
   display: flex;
   justify-content: space-between;

@@ -23,6 +23,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // Logic xử lý đăng nhập
   const loginForm = document.getElementById("login-form");
   const errorMessage = document.getElementById("error-message");
+  const usernameInput = document.getElementById("username");
+  const usernameError = document.getElementById("username-error");
+
+  const validateUsernameLength = () => {
+    const isTooLong = usernameInput.value.length > 250;
+    usernameError.hidden = !isTooLong;
+    return !isTooLong;
+  };
+
+  usernameInput.addEventListener("input", validateUsernameLength);
 
   // Kiểm tra trạng thái đăng nhập khi tải trang
   const storedUser = localStorage.getItem("user");
@@ -56,7 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
   loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const username = document.getElementById("username").value;
+    if (!validateUsernameLength()) {
+      usernameInput.focus();
+      return;
+    }
+
+    const username = usernameInput.value;
     const password = document.getElementById("password").value;
     const remember = document.getElementById("remember").checked;
 

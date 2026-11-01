@@ -183,7 +183,11 @@
                 placeholder="Email hoặc số điện thoại"
                 required
                 minlength="5"
+                aria-describedby="username-error"
               />
+              <label id="username-error" class="username-error" aria-live="polite" hidden>
+                Username không được vượt quá 250 ký tự.
+              </label>
               <input
                 type="password"
                 id="password"
